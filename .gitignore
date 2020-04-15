@@ -62,3 +62,7 @@ crashlytics-build.properties
 Proeve/Library/
 
 Proeve/Logs/
+
+Proeve/Temp/
+
+Proeve/obj/
