@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Order : MonoBehaviour
 {
-    [SerializeField] private GameObject[] baseRecipe;
-    [SerializeField] private GameObject[] vegetables;
-    [SerializeField] private GameObject[] meat;
-    [SerializeField] private GameObject[] sauce;
-    [SerializeField] private GameObject[] extra;
-    [SerializeField] private List<Transform> OrderHolder;
+    [SerializeField] private GameObject[] _baseRecipe = null;
+    [SerializeField] private GameObject[] _vegetables = null;
+    [SerializeField] private GameObject[] _meat = null;
+    [SerializeField] private GameObject[] _sauce = null;
+    [SerializeField] private GameObject[] _extra = null;
+    [SerializeField] private List<Transform> _orderHolder = null;
     Dictionary<string, GameObject> Burger = new Dictionary<string, GameObject>();
     Dictionary<string, GameObject> Pizza = new Dictionary<string, GameObject>();
     Dictionary<string, GameObject> Hotdog = new Dictionary<string, GameObject>();
@@ -30,13 +30,13 @@ public class Order : MonoBehaviour
     private void SpawnOrderBurger()
     {
         int orderNumber = 0;
-        Instantiate(Burger["TopBun"], OrderHolder[orderNumber].position, Quaternion.identity);
+        Instantiate(Burger["TopBun"], _orderHolder[orderNumber].position, Quaternion.identity);
         orderNumber += 1;
-        Instantiate(Burger["sauce"], OrderHolder[orderNumber].position, Quaternion.identity);
+        Instantiate(Burger["sauce"], _orderHolder[orderNumber].position, Quaternion.identity);
         orderNumber += 1;
-        Instantiate(Burger["Patty"], OrderHolder[orderNumber].position, Quaternion.identity);
+        Instantiate(Burger["Patty"], _orderHolder[orderNumber].position, Quaternion.identity);
         orderNumber += 1;
-        Instantiate(Burger["BottomBun"], OrderHolder[orderNumber].position, Quaternion.identity);
+        Instantiate(Burger["BottomBun"], _orderHolder[orderNumber].position, Quaternion.identity);
         
     }
 
@@ -44,30 +44,31 @@ public class Order : MonoBehaviour
     private void SpawnOrderPizza()
     {
         int orderNumber = 0;
-        Instantiate(Burger["TopBun"], OrderHolder[orderNumber].position, Quaternion.identity);
+        Instantiate(Burger["TopBun"], _orderHolder[orderNumber].position, Quaternion.identity);
         orderNumber += 1;
-        Instantiate(Burger["sauce"], OrderHolder[orderNumber].position, Quaternion.identity);
+        Instantiate(Burger["sauce"], _orderHolder[orderNumber].position, Quaternion.identity);
         orderNumber += 1;
-        Instantiate(Burger["Patty"], OrderHolder[orderNumber].position, Quaternion.identity);
+        Instantiate(Burger["Patty"], _orderHolder[orderNumber].position, Quaternion.identity);
         orderNumber += 1;
-        Instantiate(Burger["BottomBun"], OrderHolder[orderNumber].position, Quaternion.identity);
+        Instantiate(Burger["BottomBun"], _orderHolder[orderNumber].position, Quaternion.identity);
     }
 
     // in SpawnOrderHotDog all hotdog Ingredients are added in order. 
     private void SpawnOrderHotDog()
     {
         int orderNumber = 0;
-        GameObject union = Instantiate(Hotdog["Union"], OrderHolder[orderNumber].position, Quaternion.identity);
-        union.transform.parent = OrderHolder[orderNumber];
+        GameObject union = Instantiate(Hotdog["Union"], _orderHolder[orderNumber].position, Quaternion.identity);
+        union.transform.parent = _orderHolder[orderNumber];
+        union.name = "HotdogUnion";
         orderNumber += 1;
-        GameObject sauce = Instantiate(Hotdog["sauce"], OrderHolder[orderNumber].position, Quaternion.identity);
-        sauce.transform.parent = OrderHolder[orderNumber];
+        GameObject sauce = Instantiate(Hotdog["sauce"], _orderHolder[orderNumber].position, Quaternion.identity);
+        sauce.transform.parent = _orderHolder[orderNumber];
         orderNumber += 1;
-        GameObject meat = Instantiate(Hotdog["meat"], OrderHolder[orderNumber].position, Quaternion.identity);
-        meat.transform.parent = OrderHolder[orderNumber];
+        GameObject meat = Instantiate(Hotdog["meat"], _orderHolder[orderNumber].position, Quaternion.identity);
+        meat.transform.parent = _orderHolder[orderNumber];
         orderNumber += 1;
-        GameObject bread = Instantiate(Hotdog["Bread"], OrderHolder[orderNumber].position, Quaternion.identity);
-        bread.transform.parent = OrderHolder[orderNumber];
+        GameObject bread = Instantiate(Hotdog["Bread"], _orderHolder[orderNumber].position, Quaternion.identity);
+        bread.transform.parent = _orderHolder[orderNumber];
     }
 
     /*
@@ -79,14 +80,14 @@ public class Order : MonoBehaviour
 
     private void AddIngrdientsToList()
     {
-        int sauceNumber = Random.Range(0, 4);
-        Burger.Add("TopBun", baseRecipe[0]);
-        Burger.Add("BottomBun", baseRecipe[1]);
-        Burger.Add("Patty", meat[0]);
-        Burger.Add("sauce", sauce[sauceNumber]);
-        Hotdog.Add("Union", extra[0]);
-        Hotdog.Add("sauce", sauce[3]);
-        Hotdog.Add("meat", meat[1]);
-        Hotdog.Add("Bread", baseRecipe[2]);
+        int sauceNumber = Random.Range(0, 1);
+        Burger.Add("TopBun", _baseRecipe[0]);
+        Burger.Add("BottomBun", _baseRecipe[1]);
+        Burger.Add("Patty", _meat[0]);
+        Burger.Add("sauce", _sauce[sauceNumber]);
+        Hotdog.Add("Union", _extra[0]);
+        Hotdog.Add("sauce", _sauce[2]);
+        Hotdog.Add("meat", _meat[1]);
+        Hotdog.Add("Bread", _baseRecipe[2]);
     }
 }
