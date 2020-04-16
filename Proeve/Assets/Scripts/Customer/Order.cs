@@ -19,6 +19,7 @@ public class Order : MonoBehaviour
     void Start()
     {
         AddIngrdientsToList();
+        GenerateOrder();
     }
 
     public void GenerateOrder()
