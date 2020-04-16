@@ -399,12 +399,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -698,7 +698,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 763, y: 274}
+  m_AnchoredPosition: {x: 352, y: 114}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1254647717
@@ -804,16 +804,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf06792565ec4e149a8e0c3ccc7e4849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Base:
+  _baseRecipe:
   - {fileID: 6313597014551218878, guid: 0ccccb7aa1715d64ab23675a8c7b0207, type: 3}
   - {fileID: 6586796830801880291, guid: 993016a06f57b45408b267a23beb6232, type: 3}
-  Vegetables: []
-  Meat:
+  - {fileID: 795247232727742663, guid: ce059fdd3802d0542b1b015a08ec985a, type: 3}
+  _vegetables: []
+  _meat:
   - {fileID: 6610613160031422496, guid: bc372fc06ca1c114e9eee9662531b06b, type: 3}
-  Sauce:
+  - {fileID: 7429009420327030176, guid: c6e4b0c17a4655e47be56cc8ba26bcdc, type: 3}
+  _sauce:
   - {fileID: 7356438446339917414, guid: 3aaf0b2f4c082ea40b82b84b026ab2d6, type: 3}
   - {fileID: 2743820077789463431, guid: 08e483c260cd8734c825c5464c27cad4, type: 3}
-  OrderHolder:
+  - {fileID: 1053653332674805602, guid: 1728e8bffa1105741a15378cdeafe99c, type: 3}
+  _extra:
+  - {fileID: 7648456470709475848, guid: 3bc14b21de4a00649b67d23396ee9f16, type: 3}
+  _orderHolder:
   - {fileID: 644105618}
   - {fileID: 399679357}
   - {fileID: 1928975427}
