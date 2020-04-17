@@ -21,6 +21,13 @@ public class Order : MonoBehaviour
         AddIngrdientsToList();
         GenerateOrder();
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GenerateOrder();
+        }
+    }
 
     public void GenerateOrder()
     {
@@ -62,18 +69,26 @@ public class Order : MonoBehaviour
     private void SpawnOrderHotDog()
     {
         int orderNumber = 0;
-        GameObject union = Instantiate(Hotdog["Union"], _orderHolder[orderNumber].position, Quaternion.identity);
-        union.transform.parent = _orderHolder[orderNumber];
-        union.name = "HotdogUnion";
-        orderNumber += 1;
+        int randomIngredient = Random.Range(0,3);
+        Debug.Log(randomIngredient);
+        if (randomIngredient >= 2)
+        {
+            GameObject union = Instantiate(Hotdog["Union"], _orderHolder[orderNumber].position, Quaternion.identity);
+            union.transform.parent = _orderHolder[orderNumber];
+            union.name = "HotdogUnion";
+            orderNumber += 1;
+        }
         GameObject sauce = Instantiate(Hotdog["sauce"], _orderHolder[orderNumber].position, Quaternion.identity);
         sauce.transform.parent = _orderHolder[orderNumber];
+        sauce.name = "HotdogSauce";
         orderNumber += 1;
         GameObject meat = Instantiate(Hotdog["meat"], _orderHolder[orderNumber].position, Quaternion.identity);
         meat.transform.parent = _orderHolder[orderNumber];
+        meat.name = "HotdogMeat";
         orderNumber += 1;
         GameObject bread = Instantiate(Hotdog["Bread"], _orderHolder[orderNumber].position, Quaternion.identity);
         bread.transform.parent = _orderHolder[orderNumber];
+        bread.name = "HotdogBase";
     }
 
     /*
