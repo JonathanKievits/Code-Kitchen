@@ -1470,19 +1470,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseRecipe:
-  - {fileID: 6313597014551218878, guid: 0ccccb7aa1715d64ab23675a8c7b0207, type: 3}
-  - {fileID: 6586796830801880291, guid: 993016a06f57b45408b267a23beb6232, type: 3}
-  - {fileID: 5178206792824998521, guid: 722e18d0dbc72db47bdad0527eca1841, type: 3}
+  - {fileID: 4946805563372743815, guid: ada69c141487b59468a20396f44fd9d4, type: 3}
+  - {fileID: 6378524947916173927, guid: 2a771b677678f8345ac5fb7822b6c03f, type: 3}
+  - {fileID: 874606569394258770, guid: ebde98345c447e84f916bd6f9c871c2e, type: 3}
   _vegetables: []
   _meat:
-  - {fileID: 6610613160031422496, guid: bc372fc06ca1c114e9eee9662531b06b, type: 3}
+  - {fileID: 3139492460807027777, guid: f8955eeca56f792439f8192f9c79183b, type: 3}
   - {fileID: 5178206792824998521, guid: 722e18d0dbc72db47bdad0527eca1841, type: 3}
   _sauce:
-  - {fileID: 7356438446339917414, guid: 3aaf0b2f4c082ea40b82b84b026ab2d6, type: 3}
-  - {fileID: 2743820077789463431, guid: 08e483c260cd8734c825c5464c27cad4, type: 3}
-  - {fileID: 5178206792824998521, guid: 722e18d0dbc72db47bdad0527eca1841, type: 3}
+  - {fileID: 1582320291754378832, guid: ba44e260d3071724192c815e01e2bcd2, type: 3}
+  - {fileID: 1582320291754378832, guid: ba44e260d3071724192c815e01e2bcd2, type: 3}
+  - {fileID: 1582320291754378832, guid: ba44e260d3071724192c815e01e2bcd2, type: 3}
   _extra:
-  - {fileID: 5178206792824998521, guid: 722e18d0dbc72db47bdad0527eca1841, type: 3}
+  - {fileID: 1932568785775139721, guid: a349792318ec9b34fb8cb8f7d49df8bd, type: 3}
   _orderHolder:
   - {fileID: 1255213779}
   - {fileID: 1431192067}

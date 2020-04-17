@@ -64,10 +64,10 @@ public class CommandBlock : MonoBehaviour
                 StaticK.WrongInput = false;
             }
         } 
-        catch
+        catch(Exception e)
         {
             StaticK.WrongInput = true;
-            StaticK.CommandString = StaticK.CommandString + " Dit is geen correcte code";
+            StaticK.CommandString += " Dit is geen correcte code";
         }
         if (!StaticK.WrongInput)
         {
@@ -158,7 +158,9 @@ public class CommandBlock : MonoBehaviour
                     break;
             }
         else
+        {
             StaticK.CommandString = "Klant(" + _customerLocation + ")"; StaticK.WrongInput = true;
+        }
     }
     //this spawns the ingredients
     IEnumerator _spawnIngredient(GameObject _whatSpawned, int _numberOfIngredients, Transform _ingredientSpawnLocation)
@@ -203,8 +205,7 @@ public class CommandBlock : MonoBehaviour
     {
             for (int i = 0; i < _ingredientSpawnLocation.childCount; i++)
             {
-            int _trueI = i + 1;
-            string _orderIngredient = "place" + _trueI;
+            string _orderIngredient = "place" + (i + 1);
             var _trueOrderIngredient = Order.transform.Find(_orderIngredient).GetChild(0);
             var _falseOrderIngredient = _ingredientSpawnLocation.GetChild(i);
                 if (/*i > _orderIngredient.childCount ||*/ _falseOrderIngredient.transform.name != _trueOrderIngredient.transform.name)
@@ -218,7 +219,7 @@ public class CommandBlock : MonoBehaviour
         {
             GameObject.Destroy(child.gameObject);
         }
-        _order.GenerateOrder();
+        StaticK.CommandString = "Bedankt voor het eten!";
     }
 }
 
