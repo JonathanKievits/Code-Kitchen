@@ -10,10 +10,11 @@ public class Happyness : MonoBehaviour
     {
         Happy,
         Neutral,
+        Sad,
         Angry
     }
 
-    private MoodState _state;
+    public MoodState State;
 
 
     //Functions
@@ -21,21 +22,24 @@ public class Happyness : MonoBehaviour
     //Starts the state with happy
     void Start()
     {
-        _state = MoodState.Happy;    
+        State = MoodState.Happy;    
     }
 
     //Raises the customer happyness
     public void RaiseHappyness()
     {
-        switch (_state)
+        switch (State)
         {
             case MoodState.Happy:
                 break;
             case MoodState.Neutral:
-                _state = MoodState.Happy;
+                State = MoodState.Happy;
+                break;
+            case MoodState.Sad:
+                State = MoodState.Neutral;
                 break;
             case MoodState.Angry:
-                _state = MoodState.Neutral;
+                State = MoodState.Sad;
                 break;
             default:
                 break;
@@ -45,13 +49,16 @@ public class Happyness : MonoBehaviour
     //Lowers the customer happyness
     public void LowerHappyness()
     {
-        switch (_state)
+        switch (State)
         {
             case MoodState.Happy:
-                _state = MoodState.Neutral;
+                State = MoodState.Neutral;
                 break;
             case MoodState.Neutral:
-                _state = MoodState.Angry;
+                State = MoodState.Sad;
+                break;
+            case MoodState.Sad:
+                State = MoodState.Angry;
                 break;
             case MoodState.Angry:
                 break;
@@ -63,6 +70,6 @@ public class Happyness : MonoBehaviour
     //Changes the customer happyness with given state
     public void SetHappyness(MoodState state)
     {
-        _state = state;
+        State = state;
     }
 }
