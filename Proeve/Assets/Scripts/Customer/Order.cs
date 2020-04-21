@@ -56,14 +56,22 @@ public class Order : MonoBehaviour
     private void SpawnOrderBurger()
     {
         int orderNumber = 0;
-        Instantiate(Burger["TopBun"], _orderHolder[orderNumber].position, Quaternion.identity);
+        GameObject topbun = Instantiate(Burger["TopBun"], _orderHolder[orderNumber].position, Quaternion.identity);
+        topbun.transform.parent = _orderHolder[orderNumber];
+        topbun.name = "BurgetTopBun";
         orderNumber += 1;
-        Instantiate(Burger["sauce"], _orderHolder[orderNumber].position, Quaternion.identity);
+        GameObject sauce = Instantiate(Burger["sauce"], _orderHolder[orderNumber].position, Quaternion.identity);
+        sauce.transform.parent = _orderHolder[orderNumber];
+        sauce.name = "BurgetSauce";
         orderNumber += 1;
-        Instantiate(Burger["Patty"], _orderHolder[orderNumber].position, Quaternion.identity);
+        GameObject patty = Instantiate(Burger["Patty"], _orderHolder[orderNumber].position, Quaternion.identity);
+        patty.transform.parent = _orderHolder[orderNumber];
+        patty.name = "BurgerPatty";
         orderNumber += 1;
-        Instantiate(Burger["BottomBun"], _orderHolder[orderNumber].position, Quaternion.identity);
-        
+        GameObject bottombun = Instantiate(Burger["BottomBun"], _orderHolder[orderNumber].position, Quaternion.identity);
+        bottombun.transform.parent = _orderHolder[orderNumber];
+        bottombun.name = "BurgetBottomBun";
+
     }
 
     // in SpawnOrderPizza all pizza Ingredients are added in order. 
