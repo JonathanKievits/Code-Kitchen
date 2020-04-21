@@ -14,10 +14,12 @@ public class Order : MonoBehaviour
     Dictionary<string, GameObject> Pizza = new Dictionary<string, GameObject>();
     Dictionary<string, GameObject> Hotdog = new Dictionary<string, GameObject>();
     private bool readyToOrder;
+    private int randomOrder;
 
     //In this start all ingredients are added to one big list, and a order is generated.
     void Start()
     {
+        
         AddIngrdientsToList();
         GenerateOrder();
     }
@@ -31,10 +33,22 @@ public class Order : MonoBehaviour
 
     public void GenerateOrder()
     {
+        randomOrder = Random.Range(0, 3);
         readyToOrder = true;
         if (readyToOrder == true)
         {
-            SpawnOrderHotDog();
+            switch (randomOrder)
+            {
+                case 0:
+                    SpawnOrderBurger();
+                    break;
+                case 1:SpawnOrderPizza();
+                    break;
+                case 2:
+                    SpawnOrderHotDog();
+                    break;
+            }
+            
         }
     }
 
@@ -56,13 +70,45 @@ public class Order : MonoBehaviour
     private void SpawnOrderPizza()
     {
         int orderNumber = 0;
-        Instantiate(Burger["TopBun"], _orderHolder[orderNumber].position, Quaternion.identity);
+        int randomIngredient = Random.Range(0, 4);
+        GameObject sauce = Instantiate(Pizza["extraSauce"], _orderHolder[orderNumber].position, Quaternion.identity);
+        sauce.transform.parent = _orderHolder[orderNumber];
+        sauce.name = "PizzaSauce";
         orderNumber += 1;
-        Instantiate(Burger["sauce"], _orderHolder[orderNumber].position, Quaternion.identity);
+        switch (randomIngredient)
+        {
+            case 0:
+                GameObject mozarella = Instantiate(Pizza["Mozarella"], _orderHolder[orderNumber].position, Quaternion.identity);
+                mozarella.transform.parent = _orderHolder[orderNumber];
+                mozarella.name = "PizzaMozarella";
+                orderNumber += 1;
+                break;
+            case 1:
+                GameObject pesto = Instantiate(Pizza["Pesto"], _orderHolder[orderNumber].position, Quaternion.identity);
+                pesto.transform.parent = _orderHolder[orderNumber];
+                pesto.name = "PizzaPesto";
+                orderNumber += 1;
+                break;
+            case 2:
+                GameObject pineapple = Instantiate(Pizza["PineApple"], _orderHolder[orderNumber].position, Quaternion.identity);
+                pineapple.transform.parent = _orderHolder[orderNumber];
+                pineapple.name = "PizzaPineApple";
+                orderNumber += 1;
+                break;
+            case 3:
+                GameObject salami = Instantiate(Pizza["Salami"], _orderHolder[orderNumber].position, Quaternion.identity);
+                salami.transform.parent = _orderHolder[orderNumber];
+                salami.name = "PizzaSalami";
+                orderNumber += 1;
+                break;
+        }
+        GameObject tomato = Instantiate(Pizza["TomatoSauce"], _orderHolder[orderNumber].position, Quaternion.identity);
+        tomato.transform.parent = _orderHolder[orderNumber];
+        tomato.name = "PizzaTomato";
         orderNumber += 1;
-        Instantiate(Burger["Patty"], _orderHolder[orderNumber].position, Quaternion.identity);
-        orderNumber += 1;
-        Instantiate(Burger["BottomBun"], _orderHolder[orderNumber].position, Quaternion.identity);
+        GameObject dough = Instantiate(Pizza["Dough"], _orderHolder[orderNumber].position, Quaternion.identity);
+        dough.transform.parent = _orderHolder[orderNumber];
+        dough.name = "PizzaDough";
     }
 
     // in SpawnOrderHotDog all hotdog Ingredients are added in order. 
@@ -100,7 +146,8 @@ public class Order : MonoBehaviour
 
     private void AddIngrdientsToList()
     {
-        int sauceNumber = Random.Range(0, 1);
+        int sauceNumber = Random.Range(0, 2);
+        int pizzaSauceNumber = Random.Range(4, 6);
         Burger.Add("TopBun", _baseRecipe[0]);
         Burger.Add("BottomBun", _baseRecipe[1]);
         Burger.Add("Patty", _meat[0]);
@@ -109,5 +156,12 @@ public class Order : MonoBehaviour
         Hotdog.Add("sauce", _sauce[2]);
         Hotdog.Add("meat", _meat[1]);
         Hotdog.Add("Bread", _baseRecipe[2]);
+        Pizza.Add("Dough", _baseRecipe[3]);
+        Pizza.Add("Salami", _meat[2]);
+        Pizza.Add("TomatoSauce", _sauce[3]);
+        Pizza.Add("extraSauce", _sauce[pizzaSauceNumber]);
+        Pizza.Add("Mozarella", _extra[1]);
+        Pizza.Add("Pesto", _extra[2]);
+        Pizza.Add("PineApple", _extra[3]);
     }
 }
