@@ -63,8 +63,8 @@ public class CommandBlock : MonoBehaviour
                 _checkIngredient(tmp[0], _intConverter, _costomerInt);
                 StaticK.WrongInput = false;
             }
-        } 
-        catch(Exception e)
+        }
+        catch (Exception e)
         {
             StaticK.WrongInput = true;
             StaticK.CommandString += " Dit is geen correcte code";
@@ -115,39 +115,39 @@ public class CommandBlock : MonoBehaviour
             {
                 case "GetBurger":
                     StaticK.PreviousCommandSize = "Round";
-                    StartCoroutine(_spawnIngredient(Burger, _numberOfIngredient, _localSpawnLocation));
+                    StartCoroutine(_spawnIngredient(Burger, _numberOfIngredient, _localSpawnLocation, "Burger"));
                     break;
                 case "GetUnderBun":
                     StaticK.PreviousCommandSize = "Round";
-                    StartCoroutine(_spawnIngredient(UnderBun, _numberOfIngredient, _localSpawnLocation));
+                    StartCoroutine(_spawnIngredient(UnderBun, _numberOfIngredient, _localSpawnLocation, "UnderBun"));
                     break;
                 case "GetLettuce":
                     StaticK.PreviousCommandSize = "Round";
-                    StartCoroutine(_spawnIngredient(Lettuce, _numberOfIngredient, _localSpawnLocation));
+                    StartCoroutine(_spawnIngredient(Lettuce, _numberOfIngredient, _localSpawnLocation, "Lettuce"));
                     break;
                 case "GetUpperBun":
                     StaticK.PreviousCommandSize = "Round";
-                    StartCoroutine(_spawnIngredient(UpperBun, _numberOfIngredient, _localSpawnLocation));
+                    StartCoroutine(_spawnIngredient(UpperBun, _numberOfIngredient, _localSpawnLocation, "UpperBun"));
                     break;
                 case "GetTomato":
                     StaticK.PreviousCommandSize = "Round";
-                    StartCoroutine(_spawnIngredient(Tomato, _numberOfIngredient, _localSpawnLocation));
+                    StartCoroutine(_spawnIngredient(Tomato, _numberOfIngredient, _localSpawnLocation, "Tomato"));
                     break;
                 case "GetHotdog":
                     StaticK.PreviousCommandSize = "Long";
-                    StartCoroutine(_spawnIngredient(Hotdog, _numberOfIngredient, _localSpawnLocation));
+                    StartCoroutine(_spawnIngredient(Hotdog, _numberOfIngredient, _localSpawnLocation, "HotdogMeat"));
                     break;
                 case "GetHotdogBun":
                     StaticK.PreviousCommandSize = "Long";
-                    StartCoroutine(_spawnIngredient(HotdogBun, _numberOfIngredient, _localSpawnLocation));
+                    StartCoroutine(_spawnIngredient(HotdogBun, _numberOfIngredient, _localSpawnLocation, "HotdogBase"));
                     break;
                 case "GetPickle":
                     StaticK.PreviousCommandSize = "Small";
-                    StartCoroutine(_spawnIngredient(Pickle, _numberOfIngredient, _localSpawnLocation));
+                    StartCoroutine(_spawnIngredient(Pickle, _numberOfIngredient, _localSpawnLocation, "HotdogUnion"));
                     break;
                 case "GetMayonaise":
                     StaticK.PreviousCommandSize = "Long";
-                    StartCoroutine(_spawnIngredient(Mayonaise, _numberOfIngredient, _localSpawnLocation));
+                    StartCoroutine(_spawnIngredient(Mayonaise, _numberOfIngredient, _localSpawnLocation, "HotdogSauce"));
                     break;
                 case "Klaar":
                     GiveCustomerFood(_localSpawnLocation);
@@ -163,10 +163,10 @@ public class CommandBlock : MonoBehaviour
         }
     }
     //this spawns the ingredients
-    IEnumerator _spawnIngredient(GameObject _whatSpawned, int _numberOfIngredients, Transform _ingredientSpawnLocation)
+    IEnumerator _spawnIngredient(GameObject _whatSpawned, int _numberOfIngredients, Transform _ingredientSpawnLocation, string _ingredientName)
     {
         int _i = 1;
-        
+
         while (_i <= _numberOfIngredients)
         {
             switch (StaticK.NumberSmalIngredient)
@@ -180,21 +180,23 @@ public class CommandBlock : MonoBehaviour
                 case 2:
                     _smallIngredientSpawnLocation = 1.4f; StaticK.NumberSmalIngredient = 0;
                     break;
-            } 
+            }
 
-            if (StaticK.PreviousCommandSize == "Round" || StaticK.PreviousCommandSize == "Long") 
-            { 
+            if (StaticK.PreviousCommandSize == "Round" || StaticK.PreviousCommandSize == "Long")
+            {
                 yield return new WaitForSeconds(_respawsTime);
                 GameObject _gameObject = Instantiate(_whatSpawned, _ingredientSpawnLocation) as GameObject;
+                _whatSpawned.name = _ingredientName;
                 StaticK.NumberSmalIngredient = 0;
                 _i++;
             }
-            else if(StaticK.PreviousCommandSize == "Small")
+            else if (StaticK.PreviousCommandSize == "Small")
             {
-                
+
                 yield return new WaitForSeconds(_respawsTime);
                 GameObject _gameObject = Instantiate(_whatSpawned, new Vector3(_ingredientSpawnLocation.position.x + _smallIngredientSpawnLocation, _ingredientSpawnLocation.position.y, _ingredientSpawnLocation.position.z), Quaternion.identity) as GameObject;
                 StaticK.NumberSmalIngredient++;
+                _whatSpawned.name = _ingredientName;
                 _gameObject.transform.SetParent(_ingredientSpawnLocation.transform);
                 _i++;
             }
@@ -203,19 +205,19 @@ public class CommandBlock : MonoBehaviour
     //this will give the ingredients to the customer
     public void GiveCustomerFood(Transform _ingredientSpawnLocation)
     {
-            for (int i = 0; i < _ingredientSpawnLocation.childCount; i++)
-            {
+        for (int i = 0; i < _ingredientSpawnLocation.childCount; i++)
+        {
             string _orderIngredient = "place" + (i + 1);
             var _trueOrderIngredient = Order.transform.Find(_orderIngredient).GetChild(0);
             var _falseOrderIngredient = _ingredientSpawnLocation.GetChild(i);
-                if (/*i > _orderIngredient.childCount ||*/ _falseOrderIngredient.transform.name != _trueOrderIngredient.transform.name)
-                {
-                    StaticK.CommandString = "Dit is niet wat ik had gevraagd!";
-                    StaticK.WrongInput = true;
-                    break;
-                }
+            if (/*i > _orderIngredient.childCount ||*/ _falseOrderIngredient.transform.name != _trueOrderIngredient.transform.name)
+            {
+                StaticK.CommandString = "Dit is niet wat ik had gevraagd!";
+                StaticK.WrongInput = true;
+                break;
             }
-        foreach(Transform child in _ingredientSpawnLocation.transform)
+        }
+        foreach (Transform child in _ingredientSpawnLocation.transform)
         {
             GameObject.Destroy(child.gameObject);
         }

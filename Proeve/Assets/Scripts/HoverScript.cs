@@ -13,8 +13,9 @@ public class HoverScript : MonoBehaviour
 
     void Start()
     {
-        DisplayText = GameObject.Find("BurgerText").GetComponent<Text>();
-        DisplayText.color = Color.clear;
+        string DisplayName = DisplayText.name;
+        DisplayText = GameObject.Find(DisplayName).GetComponent<Text>();
+        DisplayText.color = Color.black;
     }
 
     void Update()

@@ -121,7 +121,7 @@ public class Order : MonoBehaviour
         {
             GameObject union = Instantiate(Hotdog["Union"], _orderHolder[orderNumber].position, Quaternion.identity);
             union.transform.parent = _orderHolder[orderNumber];
-            union.name = "HotdogUnion";
+           union.name = "HotdogUnion";
             orderNumber += 1;
         }
         GameObject sauce = Instantiate(Hotdog["sauce"], _orderHolder[orderNumber].position, Quaternion.identity);
