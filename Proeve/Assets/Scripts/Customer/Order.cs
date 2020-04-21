@@ -149,7 +149,7 @@ public class Order : MonoBehaviour
         In the AddIngredientsToList function all possible ingredients are added to the right lists.
         In the inspector they are added to a few lists, and now they are added to a dictionary for the right order.
         This is so we can call out the name of the ingredient while making the order.
-        For burgers the sauce can be one of 3 things to give more variety. 
+        For burgers the sauce can be one of 3 things to give more variety. .
      */
 
     private void AddIngrdientsToList()
