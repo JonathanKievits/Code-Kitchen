@@ -115,11 +115,11 @@ public class CommandBlock : MonoBehaviour
             {
                 case "GetBurger":
                     StaticK.PreviousCommandSize = "Round";
-                    StartCoroutine(_spawnIngredient(Burger, _numberOfIngredient, _localSpawnLocation, "Burger"));
+                    StartCoroutine(_spawnIngredient(Burger, _numberOfIngredient, _localSpawnLocation, "BurgerPatty"));
                     break;
                 case "GetUnderBun":
                     StaticK.PreviousCommandSize = "Round";
-                    StartCoroutine(_spawnIngredient(UnderBun, _numberOfIngredient, _localSpawnLocation, "UnderBun"));
+                    StartCoroutine(_spawnIngredient(UnderBun, _numberOfIngredient, _localSpawnLocation, "BurgetBottomBun"));
                     break;
                 case "GetLettuce":
                     StaticK.PreviousCommandSize = "Round";
@@ -127,7 +127,7 @@ public class CommandBlock : MonoBehaviour
                     break;
                 case "GetUpperBun":
                     StaticK.PreviousCommandSize = "Round";
-                    StartCoroutine(_spawnIngredient(UpperBun, _numberOfIngredient, _localSpawnLocation, "UpperBun"));
+                    StartCoroutine(_spawnIngredient(UpperBun, _numberOfIngredient, _localSpawnLocation, "BurgetTopBun"));
                     break;
                 case "GetTomato":
                     StaticK.PreviousCommandSize = "Round";
