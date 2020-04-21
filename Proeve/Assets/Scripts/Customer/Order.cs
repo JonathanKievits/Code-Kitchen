@@ -58,11 +58,11 @@ public class Order : MonoBehaviour
         int orderNumber = 0;
         GameObject topbun = Instantiate(Burger["TopBun"], _orderHolder[orderNumber].position, Quaternion.identity);
         topbun.transform.parent = _orderHolder[orderNumber];
-        topbun.name = "BurgetTopBun";
+        topbun.name = "BurgerTopBun";
         orderNumber += 1;
         GameObject sauce = Instantiate(Burger["sauce"], _orderHolder[orderNumber].position, Quaternion.identity);
         sauce.transform.parent = _orderHolder[orderNumber];
-        sauce.name = "BurgetSauce";
+        sauce.name = "BurgerSauce";
         orderNumber += 1;
         GameObject patty = Instantiate(Burger["Patty"], _orderHolder[orderNumber].position, Quaternion.identity);
         patty.transform.parent = _orderHolder[orderNumber];
@@ -70,7 +70,7 @@ public class Order : MonoBehaviour
         orderNumber += 1;
         GameObject bottombun = Instantiate(Burger["BottomBun"], _orderHolder[orderNumber].position, Quaternion.identity);
         bottombun.transform.parent = _orderHolder[orderNumber];
-        bottombun.name = "BurgetBottomBun";
+        bottombun.name = "BurgerBottomBun";
 
     }
 
