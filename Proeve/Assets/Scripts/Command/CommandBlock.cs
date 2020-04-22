@@ -53,16 +53,13 @@ public class CommandBlock : MonoBehaviour
     {
         _commandCode = InputField.GetComponent<Text>().text;
         StaticK.CommandString = _commandCode;
-        string[] tmp = _commandCode.Split('(', ')', '(', ')');
+        string[] tmp = _commandCode.Split('(', ',', ')');
         try
         {
             int _intConverter = Int32.Parse(tmp[1]);
-            int _costomerInt = Int32.Parse(tmp[3]);
-            if (tmp[2] == "Klant")
-            {
-                _checkIngredient(tmp[0], _intConverter, _costomerInt);
-                StaticK.WrongInput = false;
-            }
+            int _costomerInt = Int32.Parse(tmp[2]);
+            _checkIngredient(tmp[0], _intConverter, _costomerInt);
+            StaticK.WrongInput = false;
         }
         catch (Exception e)
         {
