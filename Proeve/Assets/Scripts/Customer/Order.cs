@@ -78,37 +78,57 @@ public class Order : MonoBehaviour
     private void SpawnOrderPizza()
     {
         int orderNumber = 0;
-        int randomIngredient = Random.Range(0, 4);
+        int randomExtraIngredients = Random.Range(0, 3);
         GameObject sauce = Instantiate(Pizza["extraSauce"], _orderHolder[orderNumber].position, Quaternion.identity);
         sauce.transform.parent = _orderHolder[orderNumber];
         sauce.name = "PizzaSauce";
         orderNumber += 1;
-        switch (randomIngredient)
+        for(int i = 0; i < randomExtraIngredients; i++)
         {
-            case 0:
-                GameObject mozarella = Instantiate(Pizza["Mozarella"], _orderHolder[orderNumber].position, Quaternion.identity);
-                mozarella.transform.parent = _orderHolder[orderNumber];
-                mozarella.name = "PizzaMozarella";
-                orderNumber += 1;
-                break;
-            case 1:
-                GameObject pesto = Instantiate(Pizza["Pesto"], _orderHolder[orderNumber].position, Quaternion.identity);
-                pesto.transform.parent = _orderHolder[orderNumber];
-                pesto.name = "PizzaPesto";
-                orderNumber += 1;
-                break;
-            case 2:
-                GameObject pineapple = Instantiate(Pizza["PineApple"], _orderHolder[orderNumber].position, Quaternion.identity);
-                pineapple.transform.parent = _orderHolder[orderNumber];
-                pineapple.name = "PizzaPineApple";
-                orderNumber += 1;
-                break;
-            case 3:
-                GameObject salami = Instantiate(Pizza["Salami"], _orderHolder[orderNumber].position, Quaternion.identity);
-                salami.transform.parent = _orderHolder[orderNumber];
-                salami.name = "PizzaSalami";
-                orderNumber += 1;
-                break;
+            int randomIngredient = Random.Range(0, 4);
+            switch (randomIngredient)
+            {
+                case 0:
+                    GameObject mozarella = Instantiate(Pizza["Mozarella"], _orderHolder[orderNumber].position, Quaternion.identity);
+                    mozarella.transform.parent = _orderHolder[orderNumber];
+                    mozarella.name = "PizzaMozarella";
+                    orderNumber += 1;
+                    break;
+                case 1:
+                    GameObject pesto = Instantiate(Pizza["Pesto"], _orderHolder[orderNumber].position, Quaternion.identity);
+                    pesto.transform.parent = _orderHolder[orderNumber];
+                    pesto.name = "PizzaPesto";
+                    orderNumber += 1;
+                    break;
+                case 2:
+                    if (StaticK.Difficulty >= 1)
+                    {
+                        GameObject pineapple = Instantiate(Pizza["PineApple"], _orderHolder[orderNumber].position, Quaternion.identity);
+                        pineapple.transform.parent = _orderHolder[orderNumber];
+                        pineapple.name = "PizzaPineApple";
+                        orderNumber += 1;
+                    }
+                    else
+                    {
+                        i -= 1;
+                    }
+
+                    break;
+                case 3:
+                    if(StaticK.Difficulty >= 1)
+                    {
+                        GameObject salami = Instantiate(Pizza["Salami"], _orderHolder[orderNumber].position, Quaternion.identity);
+                        salami.transform.parent = _orderHolder[orderNumber];
+                        salami.name = "PizzaSalami";
+                        orderNumber += 1;
+                    }
+                    else
+                    {
+                        i -= 1;
+                    }
+
+                    break;
+            }
         }
         GameObject tomato = Instantiate(Pizza["TomatoSauce"], _orderHolder[orderNumber].position, Quaternion.identity);
         tomato.transform.parent = _orderHolder[orderNumber];
@@ -125,7 +145,7 @@ public class Order : MonoBehaviour
         int orderNumber = 0;
         int randomIngredient = Random.Range(0,3);
         Debug.Log(randomIngredient);
-        if (randomIngredient >= 2)
+        if (randomIngredient >= 2 && StaticK.Difficulty >= 1)
         {
             GameObject union = Instantiate(Hotdog["Union"], _orderHolder[orderNumber].position, Quaternion.identity);
             union.transform.parent = _orderHolder[orderNumber];
