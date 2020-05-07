@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Options.unity
     guid: abefe369ede092545b2b0cca5a0abb80
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/OrderTestScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/RestaurantTest.unity
+    guid: 63b999d5de5c4494da3ea9ed6930f3a5
   m_configObjects: {}
