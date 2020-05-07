@@ -12,4 +12,6 @@ public class StaticK : MonoBehaviour
     public static string CommandString;
     //this will check if there is a wrong input
     public static bool WrongInput;
+    //this will check what the game difficulty is
+    public static int Difficulty;
 }
