@@ -8,6 +8,8 @@ public class StaticK : MonoBehaviour
     public static int NumberSmalIngredient;
     //this checks which size the previous command had
     public static string PreviousCommandSize;
+    //this checks which size the bottom is
+    public static string PreviousBottom;
     //this string will be put in the outputTextfield
     public static string CommandString;
     //this will check if there is a wrong input

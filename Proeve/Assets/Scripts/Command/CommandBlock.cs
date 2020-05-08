@@ -50,7 +50,8 @@ public class CommandBlock : MonoBehaviour
     private string _multipleLines;
     private string _wrongMultipleLines;
     private float _respawsTime = 0.5f;
-    private float _smallIngredientSpawnLocation;
+    private float _smallIngredientSpawnLocationX;
+    private float _smallIngredientSpawnLocationZ;
 
     //this puts the command line in the textfield
     private void _storeCode()
@@ -120,6 +121,7 @@ public class CommandBlock : MonoBehaviour
                     break;
                 case "GetUnderBun":
                     StaticK.PreviousCommandSize = "Round";
+                    StaticK.PreviousBottom = "BurgerBottom";
                     StartCoroutine(_spawnIngredient(UnderBun, _numberOfIngredient, _localSpawnLocation, "BurgerBottomBun"));
                     break;
                 case "GetLettuce":
@@ -140,6 +142,7 @@ public class CommandBlock : MonoBehaviour
                     break;
                 case "GetHotdogBun":
                     StaticK.PreviousCommandSize = "Long";
+                    StaticK.PreviousBottom = "HotdogBottom";
                     StartCoroutine(_spawnIngredient(HotdogBun, _numberOfIngredient, _localSpawnLocation, "HotdogBase"));
                     break;
                 case "GetPickle":
@@ -162,6 +165,11 @@ public class CommandBlock : MonoBehaviour
                     StaticK.PreviousCommandSize = "BurgerLong";
                     StartCoroutine(_spawnIngredient(Bacon, _numberOfIngredient, _localSpawnLocation, "Bacon"));
                     break;
+                case "GetPizzaBottom":
+                    StaticK.PreviousCommandSize = "Pizza";
+                    StaticK.PreviousBottom = "PizzaBottom";
+                    StartCoroutine(_spawnIngredient(Bacon, _numberOfIngredient, _localSpawnLocation, "Pizza"));
+                    break;
                 case "Klaar":
                     GiveCustomerFood(_localSpawnLocation);
                     break;
@@ -179,22 +187,45 @@ public class CommandBlock : MonoBehaviour
     IEnumerator _spawnIngredient(GameObject _whatSpawned, int _numberOfIngredients, Transform _ingredientSpawnLocation, string _ingredientName)
     {
         int _i = 1;
-
         while (_i <= _numberOfIngredients)
         {
-            switch (StaticK.NumberSmalIngredient)
+            switch (StaticK.PreviousBottom)
             {
-                case 0:
-                    _smallIngredientSpawnLocation = 0.7f;
+                case "HotdogBottom":
+                    switch (StaticK.NumberSmalIngredient)
+                    {
+                        case 0:
+                            _smallIngredientSpawnLocationX = 0.7f; _smallIngredientSpawnLocationZ = 0f;
+                            break;
+                        case 1:
+                            _smallIngredientSpawnLocationX = 0f; _smallIngredientSpawnLocationZ = 0f;
+                            break;
+                        case 2:
+                            _smallIngredientSpawnLocationX = 1.4f; StaticK.NumberSmalIngredient = -1; _smallIngredientSpawnLocationZ = 0f;
+                            break;
+                    }
                     break;
-                case 1:
-                    _smallIngredientSpawnLocation = 0f;
+                case "BurgerBottom":
+                    switch (StaticK.NumberSmalIngredient)
+                    {
+                        case 0:
+                            _smallIngredientSpawnLocationX = 0.80f; _smallIngredientSpawnLocationZ = 0f;
+                            break;
+                        case 1:
+                            _smallIngredientSpawnLocationX = 0.380f; _smallIngredientSpawnLocationZ = 0f;
+                            break;
+                        case 2:
+                            _smallIngredientSpawnLocationX = 0.80f; _smallIngredientSpawnLocationZ = 0.390f;
+                            break;
+                        case 3:
+                            _smallIngredientSpawnLocationX = 0.380f; _smallIngredientSpawnLocationZ = 0.390f; StaticK.NumberSmalIngredient = -1;
+                            break;
+                    }
                     break;
-                case 2:
-                    _smallIngredientSpawnLocation = 1.4f; StaticK.NumberSmalIngredient = 0;
+                default:
+                    _smallIngredientSpawnLocationX = 0.55f; _smallIngredientSpawnLocationZ = 0.25f; StaticK.NumberSmalIngredient = -1;
                     break;
             }
-
             if (StaticK.PreviousCommandSize == "Round" || StaticK.PreviousCommandSize == "Long" || StaticK.PreviousCommandSize == "BurgerLong" || StaticK.PreviousCommandSize == "PizzaRound")
             {
                 yield return new WaitForSeconds(_respawsTime);
@@ -205,9 +236,8 @@ public class CommandBlock : MonoBehaviour
             }
             else if (StaticK.PreviousCommandSize == "Small")
             {
-
                 yield return new WaitForSeconds(_respawsTime);
-                GameObject _gameObject = Instantiate(_whatSpawned, new Vector3(_ingredientSpawnLocation.position.x + _smallIngredientSpawnLocation, _ingredientSpawnLocation.position.y, _ingredientSpawnLocation.position.z), Quaternion.identity) as GameObject;
+                GameObject _gameObject = Instantiate(_whatSpawned, new Vector3(_ingredientSpawnLocation.position.x + _smallIngredientSpawnLocationX, _ingredientSpawnLocation.position.y, _ingredientSpawnLocation.position.z + _smallIngredientSpawnLocationZ), Quaternion.Euler(-110,0,0)) as GameObject;
                 StaticK.NumberSmalIngredient++;
                 _whatSpawned.name = _ingredientName;
                 _gameObject.transform.SetParent(_ingredientSpawnLocation.transform);
@@ -224,7 +254,7 @@ public class CommandBlock : MonoBehaviour
             var _trueOrderIngredient = Order.transform.Find(_orderIngredient).GetChild(0);
             var _falseOrderIngredient = _ingredientSpawnLocation.GetChild(i);
             string[] tmp = _falseOrderIngredient.transform.name.Split('(');
-            if (/*i > _orderIngredient.childCount ||*/ tmp[0] != _trueOrderIngredient.transform.name)
+            if (tmp[0] != _trueOrderIngredient.transform.name)
             {
                 StaticK.CommandString = "Dit is niet wat ik had gevraagd!";
                 StaticK.WrongInput = true;
