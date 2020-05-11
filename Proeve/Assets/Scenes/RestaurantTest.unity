@@ -555,6 +555,7 @@ GameObject:
   - component: {fileID: 582732638}
   - component: {fileID: 582732637}
   - component: {fileID: 582732636}
+  - component: {fileID: 582732640}
   m_Layer: 0
   m_Name: Plane (1)
   m_TagString: Untagged
@@ -637,6 +638,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &582732640
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582732635}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2, z: 10}
+  m_Center: {x: 0, y: -1, z: 0}
 --- !u!1001 &601814171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -916,6 +930,8 @@ MonoBehaviour:
     type: 3}
   Pickle: {fileID: 2301342461113004641, guid: f8b2d6fdc91a857478ed14902e90c9b8, type: 3}
   Order: {fileID: 1606814965}
+  Cheese: {fileID: 3553957448004882184, guid: 2049e0613b63bd5488784c294526008d, type: 3}
+  Bacon: {fileID: 6122569043645719267, guid: 00edf90732d3e9e40a4ccb3f35efa7e0, type: 3}
 --- !u!4 &739843438
 Transform:
   m_ObjectHideFlags: 0
