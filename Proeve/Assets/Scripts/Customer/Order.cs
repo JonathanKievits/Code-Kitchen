@@ -14,6 +14,7 @@ public class Order : MonoBehaviour
     Dictionary<string, GameObject> Pizza = new Dictionary<string, GameObject>();
     Dictionary<string, GameObject> Hotdog = new Dictionary<string, GameObject>();
     private bool readyToOrder;
+    private bool chickenOrBeef = false;
     private int randomOrder;
 
     //In this start all ingredients are added to one big list, and a order is generated.
@@ -45,8 +46,6 @@ public class Order : MonoBehaviour
                     SpawnOrderBurger();
                     break;
                 case 1:
-                    SpawnOrderHotDog();
-                    //SpawnOrderPizza();
                     SpawnOrderBurger();
                     break;
                 case 2:
@@ -61,28 +60,57 @@ public class Order : MonoBehaviour
     private void SpawnOrderBurger()
     {
         int orderNumber = 0;
-        int cheeseUnion = Random.Range(0, 2);
+        int cheeseUnion = 1;
+        int chickenorpatty = Random.Range(0, 2);
         GameObject bottombun = Instantiate(Burger["BottomBun"], _orderHolder[orderNumber].position, Quaternion.identity);
         bottombun.transform.parent = _orderHolder[orderNumber];
         bottombun.name = "BurgerBottomBun";
         orderNumber += 1;
-        GameObject patty = Instantiate(Burger["Patty"], _orderHolder[orderNumber].position, Quaternion.identity);
-        patty.transform.parent = _orderHolder[orderNumber];
-        patty.name = "BurgerPatty";
-        orderNumber += 1;
-        for (int i = 0; i <= cheeseUnion; i++)
+        switch (chickenorpatty)
         {
-            int ingredientAmount = Random.Range(0, 2);
+            case 0:
+                GameObject patty = Instantiate(Burger["Patty"], _orderHolder[orderNumber].position, Quaternion.identity);
+                patty.transform.parent = _orderHolder[orderNumber];
+                patty.name = "BurgerPatty";
+                orderNumber += 1;
+                chickenOrBeef = false;
+                break;
+            case 1:
+                GameObject chicken = Instantiate(Burger["Chicken"], _orderHolder[orderNumber].position, Quaternion.identity);
+                chicken.transform.parent = _orderHolder[orderNumber];
+                chicken.name = "BurgerChicken";
+                orderNumber += 1;
+                chickenOrBeef = true;
+                break;
+        }
+        GameObject lettuce = Instantiate(Burger["Lettuce"], _orderHolder[orderNumber].position, Quaternion.identity);
+        lettuce.transform.parent = _orderHolder[orderNumber];
+        lettuce.name = "BurgerLettuce";
+        orderNumber += 1;
+        GameObject tomato = Instantiate(Burger["Tomato"], _orderHolder[orderNumber].position, Quaternion.identity);
+        tomato.transform.parent = _orderHolder[orderNumber];
+        tomato.name = "BurgerTomato";
+        orderNumber += 1;
+        for (int i = 0; i < cheeseUnion; i++)
+        {
+            int ingredientAmount = 0;
+            if (chickenOrBeef == true){
+                ingredientAmount = 0;
+            }
+            else {
+                ingredientAmount = Random.Range(0, 2);
+            }
+                    
             switch (ingredientAmount)
             {
                 case 0:
-                    GameObject union = Instantiate(Burger["union"], _orderHolder[orderNumber].position, Quaternion.identity);
+                    GameObject union = Instantiate(Burger["Union"], _orderHolder[orderNumber].position, Quaternion.identity);
                     union.transform.parent = _orderHolder[orderNumber];
                     union.name = "BurgerUnion";
                     orderNumber += 1;
                     break;
                 case 1:
-                    GameObject cheese = Instantiate(Burger["cheese"], _orderHolder[orderNumber].position, Quaternion.identity);
+                    GameObject cheese = Instantiate(Burger["Cheese"], _orderHolder[orderNumber].position, Quaternion.identity);
                     cheese.transform.parent = _orderHolder[orderNumber];
                     cheese.name = "BurgerCheese";
                     orderNumber += 1;
@@ -106,7 +134,7 @@ public class Order : MonoBehaviour
     {
         int orderNumber = 0;
         int randomExtraIngredients = Random.Range(0, 3);
-        GameObject sauce = Instantiate(Pizza["extraSauce"], _orderHolder[orderNumber].position, Quaternion.identity);
+        GameObject sauce = Instantiate(Pizza["ExtraSauce"], _orderHolder[orderNumber].position, Quaternion.identity);
         sauce.transform.parent = _orderHolder[orderNumber];
         sauce.name = "PizzaSauce";
         orderNumber += 1;
@@ -171,19 +199,31 @@ public class Order : MonoBehaviour
     {
         int orderNumber = 0;
         int randomIngredient = Random.Range(0,3);
+        int randomSauce = Random.Range(0,2);
         Debug.Log(randomIngredient);
         GameObject bread = Instantiate(Hotdog["Bread"], _orderHolder[orderNumber].position, Quaternion.identity);
         bread.transform.parent = _orderHolder[orderNumber];
         bread.name = "HotdogBase";
         orderNumber += 1;
-        GameObject meat = Instantiate(Hotdog["meat"], _orderHolder[orderNumber].position, Quaternion.identity);
+        GameObject meat = Instantiate(Hotdog["Meat"], _orderHolder[orderNumber].position, Quaternion.identity);
         meat.transform.parent = _orderHolder[orderNumber];
         meat.name = "HotdogMeat";
         orderNumber += 1;
-        GameObject sauce = Instantiate(Hotdog["sauce"], _orderHolder[orderNumber].position, Quaternion.identity);
-        sauce.transform.parent = _orderHolder[orderNumber];
-        sauce.name = "HotdogSauce";
-        orderNumber += 1;
+        switch (randomSauce)
+        {
+            case 0:
+                GameObject sauceketchup = Instantiate(Hotdog["SauceKetchup"], _orderHolder[orderNumber].position, Quaternion.identity);
+                sauceketchup.transform.parent = _orderHolder[orderNumber];
+                sauceketchup.name = "HotdogSauce";
+                orderNumber += 1;
+                break;
+            case 1:
+                GameObject saucemustard = Instantiate(Hotdog["SauceMustard"], _orderHolder[orderNumber].position, Quaternion.identity);
+                saucemustard.transform.parent = _orderHolder[orderNumber];
+                saucemustard.name = "HotdogSauce";
+                orderNumber += 1;
+                break;
+        }
         if (randomIngredient >= 2 && StaticK.Difficulty >= 1)
         {
             GameObject union = Instantiate(Hotdog["Union"], _orderHolder[orderNumber].position, Quaternion.identity);
@@ -206,17 +246,21 @@ public class Order : MonoBehaviour
         Burger.Add("TopBun", _baseRecipe[0]);
         Burger.Add("BottomBun", _baseRecipe[1]);
         Burger.Add("Patty", _meat[0]);
-        Burger.Add("sauce", _sauce[sauceNumber]);
-        Burger.Add("cheese", _extra[4]);
-        Burger.Add("union", _extra[5]);
+        Burger.Add("Chicken", _meat[3]);
+        Burger.Add("Sauce", _sauce[sauceNumber]);
+        Burger.Add("Cheese", _extra[4]);
+        Burger.Add("Union", _extra[5]);
+        Burger.Add("Lettuce", _vegetables[0]);
+        Burger.Add("Tomato", _vegetables[1]);
         Hotdog.Add("Union", _extra[0]);
-        Hotdog.Add("sauce", _sauce[2]);
-        Hotdog.Add("meat", _meat[1]);
+        Hotdog.Add("SauceKetchup", _sauce[2]);
+        Hotdog.Add("SauceMustard", _sauce[6]);
+        Hotdog.Add("Meat", _meat[1]);
         Hotdog.Add("Bread", _baseRecipe[2]);
         Pizza.Add("Dough", _baseRecipe[3]);
         Pizza.Add("Salami", _meat[2]);
         Pizza.Add("TomatoSauce", _sauce[3]);
-        Pizza.Add("extraSauce", _sauce[pizzaSauceNumber]);
+        Pizza.Add("ExtraSauce", _sauce[pizzaSauceNumber]);
         Pizza.Add("Mozarella", _extra[1]);
         Pizza.Add("Pesto", _extra[2]);
         Pizza.Add("PineApple", _extra[3]);
