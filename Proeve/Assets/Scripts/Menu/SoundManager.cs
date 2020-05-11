@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField]
-    private AudioSource _audio;
-
-    //You cant serialize a dictionary. 
-    //So it has to be done with 2 arrays
+    /// <summary>
+    /// You cant serialize a dictionary. 
+    /// So it has to be done with 2 arrays
+    /// </summary>
     [SerializeField]
     private string[] _names;
     [SerializeField]
@@ -18,12 +17,6 @@ public class SoundManager : MonoBehaviour
 
     void Start()
     {
-        //Makes sure there is an audio source
-        if (_audio == null)
-        {
-            _audio = GetComponent<AudioSource>();
-        }
-
         SoundDic = new Dictionary<string, AudioClip>();
 
         //Adds sound to dictionary from arrays
@@ -41,14 +34,17 @@ public class SoundManager : MonoBehaviour
         {
             if (name == _names[i])
             {
-                _audio.clip = SoundDic[name];
+                AudioSource newAudio = gameObject.AddComponent<AudioSource>();
+                newAudio.loop = false;
+                newAudio.playOnAwake = false;
+                newAudio.clip = SoundDic[name];
+                newAudio.Play();
+                Destroy(newAudio,newAudio.clip.length);
             }
             else
             {
                 Debug.LogWarning("Name does not exist");
             }
         }       
-
-        _audio.Play();
     }
 }
