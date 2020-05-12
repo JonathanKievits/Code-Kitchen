@@ -66,7 +66,11 @@ public class Order : MonoBehaviour
         bottombun.transform.parent = _orderHolder[orderNumber];
         bottombun.name = "BurgerBottomBun";
         orderNumber += 1;
-        switch (chickenorpatty)
+        GameObject patty = Instantiate(Burger["Patty"], _orderHolder[orderNumber].position, Quaternion.identity);
+        patty.transform.parent = _orderHolder[orderNumber];
+        patty.name = "BurgerPatty";
+        orderNumber += 1;
+        /*switch (chickenorpatty)
         {
             case 0:
                 GameObject patty = Instantiate(Burger["Patty"], _orderHolder[orderNumber].position, Quaternion.identity);
@@ -82,7 +86,7 @@ public class Order : MonoBehaviour
                 orderNumber += 1;
                 chickenOrBeef = true;
                 break;
-        }
+        }*/
         GameObject lettuce = Instantiate(Burger["Lettuce"], _orderHolder[orderNumber].position, Quaternion.identity);
         lettuce.transform.parent = _orderHolder[orderNumber];
         lettuce.name = "BurgerLettuce";
