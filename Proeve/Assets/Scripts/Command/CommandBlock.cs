@@ -44,6 +44,8 @@ public class CommandBlock : MonoBehaviour
     public GameObject Cheese;
     //this is the bacon
     public GameObject Bacon;
+    //this is the Union
+    public GameObject Union;
 
     private Order _order;
     private string _commandCode;
@@ -149,6 +151,10 @@ public class CommandBlock : MonoBehaviour
                     StaticK.PreviousCommandSize = "Small";
                     StartCoroutine(_spawnIngredient(Pickle, _numberOfIngredient, _localSpawnLocation, "HotdogUnion"));
                     break;
+                case "GetUnion":
+                    StaticK.PreviousCommandSize = "Small";
+                    StartCoroutine(_spawnIngredient(Union, _numberOfIngredient, _localSpawnLocation, "BurgerUnion"));
+                    break;
                 case "GetMayonaise":
                     StaticK.PreviousCommandSize = "Long";
                     StartCoroutine(_spawnIngredient(Mayonaise, _numberOfIngredient, _localSpawnLocation, "BurgerSauce"));
@@ -209,21 +215,21 @@ public class CommandBlock : MonoBehaviour
                     switch (StaticK.NumberSmalIngredient)
                     {
                         case 0:
-                            _smallIngredientSpawnLocationX = 0.80f; _smallIngredientSpawnLocationZ = 0f;
+                            _smallIngredientSpawnLocationX = 0.03f; _smallIngredientSpawnLocationZ = 0.18f;
                             break;
                         case 1:
-                            _smallIngredientSpawnLocationX = 0.380f; _smallIngredientSpawnLocationZ = 0f;
+                            _smallIngredientSpawnLocationX = 0.1f; _smallIngredientSpawnLocationZ = 0.18f;
                             break;
                         case 2:
-                            _smallIngredientSpawnLocationX = 0.80f; _smallIngredientSpawnLocationZ = 0.390f;
+                            _smallIngredientSpawnLocationX = 0.03f; _smallIngredientSpawnLocationZ = 0.114f;
                             break;
                         case 3:
-                            _smallIngredientSpawnLocationX = 0.380f; _smallIngredientSpawnLocationZ = 0.390f; StaticK.NumberSmalIngredient = -1;
+                            _smallIngredientSpawnLocationX = 0.1f; _smallIngredientSpawnLocationZ = 0.114f; StaticK.NumberSmalIngredient = -1;
                             break;
                     }
                     break;
                 default:
-                    _smallIngredientSpawnLocationX = 0.55f; _smallIngredientSpawnLocationZ = 0.25f; StaticK.NumberSmalIngredient = -1;
+                    _smallIngredientSpawnLocationX = 0.044f; _smallIngredientSpawnLocationZ = 0.01f; StaticK.NumberSmalIngredient = -1;
                     break;
             }
             if (StaticK.PreviousCommandSize == "Round" || StaticK.PreviousCommandSize == "Long" || StaticK.PreviousCommandSize == "BurgerLong" || StaticK.PreviousCommandSize == "PizzaRound")
@@ -236,8 +242,11 @@ public class CommandBlock : MonoBehaviour
             }
             else if (StaticK.PreviousCommandSize == "Small")
             {
+                int _rotation = 0;
+                if (_ingredientName == "HotdogUnion")
+                    _rotation = -110;
                 yield return new WaitForSeconds(_respawsTime);
-                GameObject _gameObject = Instantiate(_whatSpawned, new Vector3(_ingredientSpawnLocation.position.x + _smallIngredientSpawnLocationX, _ingredientSpawnLocation.position.y, _ingredientSpawnLocation.position.z + _smallIngredientSpawnLocationZ), Quaternion.Euler(-110,0,0)) as GameObject;
+                GameObject _gameObject = Instantiate(_whatSpawned, new Vector3(_ingredientSpawnLocation.position.x + _smallIngredientSpawnLocationX, _ingredientSpawnLocation.position.y, _ingredientSpawnLocation.position.z + _smallIngredientSpawnLocationZ), Quaternion.Euler(_rotation,0,0)) as GameObject;
                 StaticK.NumberSmalIngredient++;
                 _whatSpawned.name = _ingredientName;
                 _gameObject.transform.SetParent(_ingredientSpawnLocation.transform);

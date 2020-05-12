@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+guid: 56757d0ab5733354a8d1824960867102
+=======
+guid: 8c9aae1394e8f01419fb4692433c78a7
+>>>>>>> Stashed changes
+=======
+guid: a80980df24aa170478a3afe3b6e75663
+>>>>>>> development
+=======
+guid: 8c9aae1394e8f01419fb4692433c78a7
+>>>>>>> Stashed changes
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
