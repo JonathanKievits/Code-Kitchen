@@ -46,7 +46,7 @@ public class Order : MonoBehaviour
                     SpawnOrderBurger();
                     break;
                 case 1:
-                    SpawnOrderBurger();
+                    SpawnOrderHotDog();
                     break;
                 case 2:
                     SpawnOrderPizza();
