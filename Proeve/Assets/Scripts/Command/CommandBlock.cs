@@ -60,11 +60,11 @@ public class CommandBlock : MonoBehaviour
     {
         _commandCode = InputField.GetComponent<Text>().text;
         StaticK.CommandString = _commandCode;
-        string[] tmp = _commandCode.Split('(', ',', ')');
+        string[] tmp = _commandCode.Split('(', /*',',*/ ')');
         try
         {
             int _intConverter = Int32.Parse(tmp[1]);
-            int _costomerInt = Int32.Parse(tmp[2]);
+            int _costomerInt = /*Int32.Parse(tmp[2])*/2;
             _checkIngredient(tmp[0], _intConverter, _costomerInt);
         }
         catch (Exception e)
@@ -121,20 +121,20 @@ public class CommandBlock : MonoBehaviour
                     StaticK.PreviousCommandSize = "Round";
                     StartCoroutine(_spawnIngredient(Burger, _numberOfIngredient, _localSpawnLocation, "BurgerPatty"));
                     break;
-                case "GetUnderBun":
+                case "GetOnderBroodje":
                     StaticK.PreviousCommandSize = "Round";
                     StaticK.PreviousBottom = "BurgerBottom";
                     StartCoroutine(_spawnIngredient(UnderBun, _numberOfIngredient, _localSpawnLocation, "BurgerBottomBun"));
                     break;
-                case "GetLettuce":
+                case "GetSla":
                     StaticK.PreviousCommandSize = "Round";
                     StartCoroutine(_spawnIngredient(Lettuce, _numberOfIngredient, _localSpawnLocation, "Lettuce"));
                     break;
-                case "GetUpperBun":
+                case "GetTopBroodje":
                     StaticK.PreviousCommandSize = "Round";
                     StartCoroutine(_spawnIngredient(UpperBun, _numberOfIngredient, _localSpawnLocation, "BurgerTopBun"));
                     break;
-                case "GetTomato":
+                case "GetTomaat":
                     StaticK.PreviousCommandSize = "Round";
                     StartCoroutine(_spawnIngredient(Tomato, _numberOfIngredient, _localSpawnLocation, "Tomato"));
                     break;
@@ -142,20 +142,20 @@ public class CommandBlock : MonoBehaviour
                     StaticK.PreviousCommandSize = "Long";
                     StartCoroutine(_spawnIngredient(Hotdog, _numberOfIngredient, _localSpawnLocation, "HotdogMeat"));
                     break;
-                case "GetHotdogBun":
+                case "GetHotdogBroodje":
                     StaticK.PreviousCommandSize = "Long";
                     StaticK.PreviousBottom = "HotdogBottom";
                     StartCoroutine(_spawnIngredient(HotdogBun, _numberOfIngredient, _localSpawnLocation, "HotdogBase"));
                     break;
-                case "GetPickle":
+                case "GetAugruk":
                     StaticK.PreviousCommandSize = "Small";
                     StartCoroutine(_spawnIngredient(Pickle, _numberOfIngredient, _localSpawnLocation, "HotdogUnion"));
                     break;
-                case "GetUnion":
+                case "GetUitjes":
                     StaticK.PreviousCommandSize = "Small";
                     StartCoroutine(_spawnIngredient(Union, _numberOfIngredient, _localSpawnLocation, "BurgerUnion"));
                     break;
-                case "GetMayonaise":
+                case "GetMayonaise123":
                     StaticK.PreviousCommandSize = "Long";
                     StartCoroutine(_spawnIngredient(Mayonaise, _numberOfIngredient, _localSpawnLocation, "BurgerSauce"));
                     break;
@@ -163,11 +163,11 @@ public class CommandBlock : MonoBehaviour
                     StaticK.PreviousCommandSize = "Long";
                     StartCoroutine(_spawnIngredient(Mayonaise, _numberOfIngredient, _localSpawnLocation, "HotdogSauce"));
                     break;
-                case "GetCheese":
+                case "GetKaas":
                     StaticK.PreviousCommandSize = "Round";
                     StartCoroutine(_spawnIngredient(Cheese, _numberOfIngredient, _localSpawnLocation, "Cheese"));
                     break;
-                case "GetBacon":
+                case "GetSpek":
                     StaticK.PreviousCommandSize = "BurgerLong";
                     StartCoroutine(_spawnIngredient(Bacon, _numberOfIngredient, _localSpawnLocation, "Bacon"));
                     break;
@@ -257,9 +257,11 @@ public class CommandBlock : MonoBehaviour
     //this will give the ingredients to the customer
     public void GiveCustomerFood(Transform _ingredientSpawnLocation)
     {
+        int TempInt = 6;
         for (int i = 0; i < _ingredientSpawnLocation.childCount; i++)
         {
-            string _orderIngredient = "place" + (Order.transform.childCount - i);
+            print(Order.transform.childCount);
+            string _orderIngredient = "place" + (/*Order.transform.childCount*/TempInt - i);
             var _trueOrderIngredient = Order.transform.Find(_orderIngredient).GetChild(0);
             var _falseOrderIngredient = _ingredientSpawnLocation.GetChild(i);
             string[] tmp = _falseOrderIngredient.transform.name.Split('(');
@@ -274,7 +276,7 @@ public class CommandBlock : MonoBehaviour
         {
             GameObject.Destroy(child.gameObject);
         }
-        if(!StaticK.WrongInput)
+        if(!StaticK.WrongInput && _ingredientSpawnLocation.childCount != 0)
             StaticK.CommandString = "Bedankt voor het eten!";
     }
 }

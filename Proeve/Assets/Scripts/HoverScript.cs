@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class HoverScript : MonoBehaviour
 {
+    //this will display which text you want to use
     public string DisplayString;
+    //this will search for the text this scirpt is bound
     public Text DisplayText;
 
     private bool _displayInfo;
