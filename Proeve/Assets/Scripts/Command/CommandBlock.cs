@@ -128,7 +128,7 @@ public class CommandBlock : MonoBehaviour
                     break;
                 case "GetSla":
                     StaticK.PreviousCommandSize = "Round";
-                    StartCoroutine(_spawnIngredient(Lettuce, _numberOfIngredient, _localSpawnLocation, "Lettuce"));
+                    StartCoroutine(_spawnIngredient(Lettuce, _numberOfIngredient, _localSpawnLocation, "BurgerLettuce"));
                     break;
                 case "GetTopBroodje":
                     StaticK.PreviousCommandSize = "Round";
@@ -136,7 +136,7 @@ public class CommandBlock : MonoBehaviour
                     break;
                 case "GetTomaat":
                     StaticK.PreviousCommandSize = "Round";
-                    StartCoroutine(_spawnIngredient(Tomato, _numberOfIngredient, _localSpawnLocation, "Tomato"));
+                    StartCoroutine(_spawnIngredient(Tomato, _numberOfIngredient, _localSpawnLocation, "BurgerTomato"));
                     break;
                 case "GetHotdog":
                     StaticK.PreviousCommandSize = "Long";
@@ -165,7 +165,7 @@ public class CommandBlock : MonoBehaviour
                     break;
                 case "GetKaas":
                     StaticK.PreviousCommandSize = "Round";
-                    StartCoroutine(_spawnIngredient(Cheese, _numberOfIngredient, _localSpawnLocation, "Cheese"));
+                    StartCoroutine(_spawnIngredient(Cheese, _numberOfIngredient, _localSpawnLocation, "BurgerCheese"));
                     break;
                 case "GetSpek":
                     StaticK.PreviousCommandSize = "BurgerLong";
