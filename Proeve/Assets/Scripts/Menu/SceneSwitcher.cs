@@ -45,4 +45,3 @@ public class SceneSwitcher : MonoBehaviour
         Application.Quit();
     }
 }
-//#JarnoCode
