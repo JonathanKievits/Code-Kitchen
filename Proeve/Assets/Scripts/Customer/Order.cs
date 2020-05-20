@@ -20,18 +20,11 @@ public class Order : MonoBehaviour
     //In this start all ingredients are added to one big list, and a order is generated.
     void Start()
     {
-        
+
         AddIngrdientsToList();
         //SpawnOrderBurger();
         //SpawnOrderHotDog();
         GenerateOrder();
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GenerateOrder();
-        }
     }
 
     public void GenerateOrder()
@@ -213,7 +206,11 @@ public class Order : MonoBehaviour
         meat.transform.parent = _orderHolder[orderNumber];
         meat.name = "HotdogMeat";
         orderNumber += 1;
-        switch (randomSauce)
+        GameObject sauceketchup = Instantiate(Hotdog["SauceKetchup"], _orderHolder[orderNumber].position, Quaternion.identity);
+        sauceketchup.transform.parent = _orderHolder[orderNumber];
+        sauceketchup.name = "HotdogSauce";
+        orderNumber += 1;
+        /*switch (randomSauce)
         {
             case 0:
                 GameObject sauceketchup = Instantiate(Hotdog["SauceKetchup"], _orderHolder[orderNumber].position, Quaternion.identity);
@@ -227,7 +224,7 @@ public class Order : MonoBehaviour
                 saucemustard.name = "HotdogSauce";
                 orderNumber += 1;
                 break;
-        }
+        }*/
         if (randomIngredient >= 2 && StaticK.Difficulty >= 1)
         {
             GameObject union = Instantiate(Hotdog["Union"], _orderHolder[orderNumber].position, Quaternion.identity);
