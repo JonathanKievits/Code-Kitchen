@@ -27,6 +27,7 @@ public class Order : MonoBehaviour
         GenerateOrder();
     }
 
+    
     public void GenerateOrder()
     {
         randomOrder = Random.Range(0, 2);
@@ -265,5 +266,17 @@ public class Order : MonoBehaviour
         Pizza.Add("Mozarella", _extra[1]);
         Pizza.Add("Pesto", _extra[2]);
         Pizza.Add("PineApple", _extra[3]);
+    }
+
+    private void ResetOrder()
+    {
+        for(int i = 0; i < _orderHolder.Count; i++)
+        {
+            foreach (Transform child in _orderHolder[i])
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+        }
+
     }
 }
