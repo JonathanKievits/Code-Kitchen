@@ -1,0 +1,317 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &333736340999216661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8458394812463711574}
+  - component: {fileID: 9158951887984594679}
+  - component: {fileID: 2393679780920458448}
+  m_Layer: 0
+  m_Name: Icecream cone (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8458394812463711574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333736340999216661}
+  m_LocalRotation: {x: 0.5061434, y: -0.6717599, z: 0.19737215, w: 0.5035889}
+  m_LocalPosition: {x: -0.34496403, y: 0.93309957, z: 0.6013308}
+  m_LocalScale: {x: 0.47284362, y: 0.4728435, z: 0.4728436}
+  m_Children: []
+  m_Father: {fileID: 5791304198053334271}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 50.800003, y: -131.029, z: -49.588}
+--- !u!33 &9158951887984594679
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333736340999216661}
+  m_Mesh: {fileID: 2534964839176971238, guid: 1527d5a3957992a4a9661296745b78c9, type: 3}
+--- !u!23 &2393679780920458448
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333736340999216661}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: ec9b2da6e2eba804391dc4285c7647e8, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!1 &3626736772846231509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8516426432456622557}
+  - component: {fileID: 8258633320016973966}
+  - component: {fileID: 7850199487876311933}
+  m_Layer: 0
+  m_Name: Icecream cone (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8516426432456622557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3626736772846231509}
+  m_LocalRotation: {x: 0.0020640125, y: -0.0033178232, z: 0.52822214, w: 0.84909725}
+  m_LocalPosition: {x: -0.36230642, y: 1.0335728, z: -0.6371469}
+  m_LocalScale: {x: 0.47284356, y: 0.47284344, z: 0.47284362}
+  m_Children: []
+  m_Father: {fileID: 5791304198053334271}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0.402, y: -0.19800001, z: 63.771004}
+--- !u!33 &8258633320016973966
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3626736772846231509}
+  m_Mesh: {fileID: 2534964839176971238, guid: 1527d5a3957992a4a9661296745b78c9, type: 3}
+--- !u!23 &7850199487876311933
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3626736772846231509}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: ec9b2da6e2eba804391dc4285c7647e8, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!1 &4400506230934967747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5791304198053334271}
+  - component: {fileID: 3647836438917183211}
+  - component: {fileID: 2827553197900916951}
+  m_Layer: 0
+  m_Name: foodtray_ijshoorntje
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5791304198053334271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4400506230934967747}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.11, y: 1.379, z: 3.78}
+  m_LocalScale: {x: 0.53049, y: 0.53049, z: 0.53049}
+  m_Children:
+  - {fileID: 3884883107831146842}
+  - {fileID: 8516426432456622557}
+  - {fileID: 8458394812463711574}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &3647836438917183211
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4400506230934967747}
+  m_Mesh: {fileID: -5495902117074765545, guid: eb64a881b75421649875cf70818979df, type: 3}
+--- !u!23 &2827553197900916951
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4400506230934967747}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d42e5d9cb099cec4bb1c55bf6a4c9e16, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!1001 &6554988134737837201
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5791304198053334271}
+    m_Modifications:
+    - target: {fileID: 1805696207038454612, guid: ed0bc46f167186b4e800a6ee369fd421,
+        type: 3}
+      propertyPath: m_Name
+      value: Icecream cone (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006870585340728779, guid: ed0bc46f167186b4e800a6ee369fd421,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.36286214
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006870585340728779, guid: ed0bc46f167186b4e800a6ee369fd421,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0324438
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006870585340728779, guid: ed0bc46f167186b4e800a6ee369fd421,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0019968213
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006870585340728779, guid: ed0bc46f167186b4e800a6ee369fd421,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.43402958
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006870585340728779, guid: ed0bc46f167186b4e800a6ee369fd421,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.69768625
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006870585340728779, guid: ed0bc46f167186b4e800a6ee369fd421,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.30106682
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006870585340728779, guid: ed0bc46f167186b4e800a6ee369fd421,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.48395354
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006870585340728779, guid: ed0bc46f167186b4e800a6ee369fd421,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006870585340728779, guid: ed0bc46f167186b4e800a6ee369fd421,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 57.161003
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006870585340728779, guid: ed0bc46f167186b4e800a6ee369fd421,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -130.23901
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006870585340728779, guid: ed0bc46f167186b4e800a6ee369fd421,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -35.413002
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ed0bc46f167186b4e800a6ee369fd421, type: 3}
+--- !u!4 &3884883107831146842 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8006870585340728779, guid: ed0bc46f167186b4e800a6ee369fd421,
+    type: 3}
+  m_PrefabInstance: {fileID: 6554988134737837201}
+  m_PrefabAsset: {fileID: 0}
