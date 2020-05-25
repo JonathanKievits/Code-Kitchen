@@ -293,8 +293,8 @@ public class CommandBlock : MonoBehaviour
             if (StaticK.PreviousCommandSize == "Round" || StaticK.PreviousCommandSize == "Long" || StaticK.PreviousCommandSize == "BurgerLong" || StaticK.PreviousCommandSize == "PizzaRound")
             {
                 yield return new WaitForSeconds(_respawsTime);
-                GameObject _gameObject = Instantiate(_whatSpawned, _ingredientSpawnLocation) as GameObject;
                 _whatSpawned.name = _ingredientName;
+                GameObject _gameObject = Instantiate(_whatSpawned, _ingredientSpawnLocation) as GameObject;
                 StaticK.NumberSmalIngredient = 0;
                 _i++;
             }
@@ -304,9 +304,9 @@ public class CommandBlock : MonoBehaviour
                 if (_ingredientName == "HotdogUnion")
                     _rotation = -110; _smallIngredientSpawnLocationZ += -0.154f;
                 yield return new WaitForSeconds(_respawsTime);
+                _whatSpawned.name = _ingredientName;
                 GameObject _gameObject = Instantiate(_whatSpawned, new Vector3(_ingredientSpawnLocation.position.x + _smallIngredientSpawnLocationX, _ingredientSpawnLocation.position.y, _ingredientSpawnLocation.position.z + _smallIngredientSpawnLocationZ), Quaternion.Euler(_rotation, 0, 0)) as GameObject;
                 StaticK.NumberSmalIngredient++;
-                _whatSpawned.name = _ingredientName;
                 _gameObject.transform.SetParent(_ingredientSpawnLocation.transform);
                 _i++;
             }
