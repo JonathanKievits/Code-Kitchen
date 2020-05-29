@@ -1,18 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
     [SerializeField]
-    private Canvas[] _canvases;
+    private GameObject[] _canvases;
 
     //Opens the selected canvas
     public void OpenCanvas(int num)
     {
         if (InRange(num))
         {
-            _canvases[num].enabled = true;
+            _canvases[num].SetActive(true);
         }
     }
 
@@ -21,7 +22,7 @@ public class CanvasManager : MonoBehaviour
     {
         if (InRange(num))
         {
-            _canvases[num].enabled = false;
+            _canvases[num].SetActive(false);
         }
     }
 
