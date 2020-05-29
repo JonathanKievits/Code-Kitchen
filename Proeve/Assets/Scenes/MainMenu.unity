@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -673,7 +673,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: Final Scene
+          m_StringArgument: RestaurantTest
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &400735062
@@ -1976,6 +1976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ea4a32e0fcf2a4b82b37f4ed8586a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audio: {fileID: 2068387537}
   _names:
   - 
   - 

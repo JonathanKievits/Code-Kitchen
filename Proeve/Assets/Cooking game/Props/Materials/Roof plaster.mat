@@ -8,14 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Roof plaster
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 2bd07e1c81b549e41b6de20f43546222,
+    type: 3}
   m_ShaderKeywords: _METALLICSPECGLOSSMAP _NORMALMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2050
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -25,15 +25,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_64881BEE:
-        m_Texture: {fileID: 2800000, guid: 7a78e5d8a6388f145991a5b361245346, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_BCA362FE:
-        m_Texture: {fileID: 2800000, guid: 16e95188eb496a343b90fe6c757fb0b6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8674b3bf55c0be848a141401adc60d29, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_D13B4415:
-        m_Texture: {fileID: 2800000, guid: 6520b33ecd1bf314d8454ccdd1bcd89a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 80b0378b2e5f88145927702fdcd1c19b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -85,14 +85,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Boolean_205CDFFF: 0
+    - Boolean_205CDFFF: 1
     - Boolean_407DCE29: 0
     - Boolean_8F7CF40: 1
     - Boolean_8F835121: 0
-    - Boolean_C19C5878: 0
+    - Boolean_C19C5878: 1
     - Boolean_C5B59962: 1
     - Boolean_C83E9DC1: 1
-    - Vector1_1883D74B: -0.2
+    - Vector1_1883D74B: -0.41
     - Vector1_1D2B4F5E: 1.68
     - Vector1_22A5C14: 1
     - Vector1_25125B1: 1
@@ -100,27 +100,27 @@ Material:
     - Vector1_3767B562: 0.432
     - Vector1_3F80ADB6: 0.025
     - Vector1_45642C25: 1
-    - Vector1_480F4B9E: 0.327
+    - Vector1_480F4B9E: 0.084
     - Vector1_57F6EA51: 1
     - Vector1_6EF2F065: 10
     - Vector1_74ABCF48: 1
     - Vector1_798B93CB: 10.7
-    - Vector1_8214C778: 5.11
+    - Vector1_8214C778: 7.76
     - Vector1_914814A0: 0
     - Vector1_97C9D898: 3
     - Vector1_983C278A: 1
     - Vector1_9CBDAF82: 0
     - Vector1_B0EA1645: 0
     - Vector1_BDAA3502: 1.45
-    - Vector1_C66E21FF: 0.224
+    - Vector1_C66E21FF: 0.166
     - Vector1_CA522F03: 1
-    - Vector1_D1DD9BC2: 1
+    - Vector1_D1DD9BC2: 19.24
     - Vector1_D4789A5F: 0.551
-    - Vector1_DD725EC8: 1.46
+    - Vector1_DD725EC8: 2.73
     - Vector1_E072B2B8: 1
     - Vector1_E146EA16: 0
     - Vector1_E2ED5FCF: 0.0236
-    - Vector1_F21C91C7: 0.339
+    - Vector1_F21C91C7: 0.36
     - Vector1_F898A44: 0.0281
     - Vector1_F9063598: 1
     - Vector1_FD707078: -0.02

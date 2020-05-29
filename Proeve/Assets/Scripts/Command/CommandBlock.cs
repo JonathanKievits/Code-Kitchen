@@ -333,8 +333,11 @@ public class CommandBlock : MonoBehaviour
         {
             GameObject.Destroy(child.gameObject);
         }
-        if(!StaticK.WrongInput && _ingredientSpawnLocation.childCount != 0)
+        if (!StaticK.WrongInput && _ingredientSpawnLocation.childCount != 0)
+        {
+           // _order.GenerateOrder();
             StaticK.CommandString = "Bedankt voor het eten!";
+        }
     }
 }
 
