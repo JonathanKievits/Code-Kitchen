@@ -13,34 +13,28 @@ public class Order : MonoBehaviour
     Dictionary<string, GameObject> Burger = new Dictionary<string, GameObject>();
     Dictionary<string, GameObject> Pizza = new Dictionary<string, GameObject>();
     Dictionary<string, GameObject> Hotdog = new Dictionary<string, GameObject>();
-    private bool readyToOrder;
-    private bool chickenOrBeef = false;
-    private int randomOrder;
+    private bool _readyToOrder;
+    private bool _chickenOrBeef = false;
+    private int _randomOrder;
 
     //In this start all ingredients are added to one big list, and a order is generated.
     void Start()
     {
-        
+
         AddIngrdientsToList();
         //SpawnOrderBurger();
         //SpawnOrderHotDog();
         GenerateOrder();
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GenerateOrder();
-        }
-    }
 
+    //Generate order picks a rendom recipe and selects that. This is done so you wont allways have a burger. 
     public void GenerateOrder()
     {
-        randomOrder = Random.Range(0, 2);
-        readyToOrder = true;
-        if (readyToOrder == true)
+        _randomOrder = Random.Range(0, 2);
+        _readyToOrder = true;
+        if (_readyToOrder == true)
         {
-            switch (randomOrder)
+            switch (_randomOrder)
             {
                 case 0:
                     SpawnOrderBurger();
@@ -59,6 +53,7 @@ public class Order : MonoBehaviour
     // in SpawnOrderBurger all burger Ingredients are added in order. 
     private void SpawnOrderBurger()
     {
+        // 3 ints are created to begin, 1 to place them in the right spot, 2 for a random extra ingrediënt and 3 to determine if we have a chicken or normal burger. 
         int orderNumber = 0;
         int cheeseUnion = 1;
         int chickenorpatty = Random.Range(0, 2);
@@ -66,27 +61,23 @@ public class Order : MonoBehaviour
         bottombun.transform.parent = _orderHolder[orderNumber];
         bottombun.name = "BurgerBottomBun";
         orderNumber += 1;
-        GameObject patty = Instantiate(Burger["Patty"], _orderHolder[orderNumber].position, Quaternion.identity);
-        patty.transform.parent = _orderHolder[orderNumber];
-        patty.name = "BurgerPatty";
-        orderNumber += 1;
-        /*switch (chickenorpatty)
+        switch (chickenorpatty)
         {
             case 0:
                 GameObject patty = Instantiate(Burger["Patty"], _orderHolder[orderNumber].position, Quaternion.identity);
                 patty.transform.parent = _orderHolder[orderNumber];
                 patty.name = "BurgerPatty";
                 orderNumber += 1;
-                chickenOrBeef = false;
+                _chickenOrBeef = false;
                 break;
             case 1:
                 GameObject chicken = Instantiate(Burger["Chicken"], _orderHolder[orderNumber].position, Quaternion.identity);
                 chicken.transform.parent = _orderHolder[orderNumber];
                 chicken.name = "BurgerChicken";
                 orderNumber += 1;
-                chickenOrBeef = true;
+                _chickenOrBeef = true;
                 break;
-        }*/
+        }
         GameObject lettuce = Instantiate(Burger["Lettuce"], _orderHolder[orderNumber].position, Quaternion.identity);
         lettuce.transform.parent = _orderHolder[orderNumber];
         lettuce.name = "BurgerLettuce";
@@ -98,7 +89,7 @@ public class Order : MonoBehaviour
         for (int i = 0; i < cheeseUnion; i++)
         {
             int ingredientAmount = 0;
-            if (chickenOrBeef == true){
+            if (_chickenOrBeef == true){
                 ingredientAmount = 0;
             }
             else {
@@ -136,6 +127,7 @@ public class Order : MonoBehaviour
     // in SpawnOrderPizza all pizza Ingredients are added in order. 
     private void SpawnOrderPizza()
     {
+        // 2 ints are created to begin, 1 to place them in the right spot, 2 for a random extra ingrediënt. 
         int orderNumber = 0;
         int randomExtraIngredients = Random.Range(0, 3);
         GameObject sauce = Instantiate(Pizza["ExtraSauce"], _orderHolder[orderNumber].position, Quaternion.identity);
@@ -213,7 +205,11 @@ public class Order : MonoBehaviour
         meat.transform.parent = _orderHolder[orderNumber];
         meat.name = "HotdogMeat";
         orderNumber += 1;
-        switch (randomSauce)
+        GameObject sauceketchup = Instantiate(Hotdog["SauceKetchup"], _orderHolder[orderNumber].position, Quaternion.identity);
+        sauceketchup.transform.parent = _orderHolder[orderNumber];
+        sauceketchup.name = "HotdogSauce";
+        orderNumber += 1;
+        /*switch (randomSauce)
         {
             case 0:
                 GameObject sauceketchup = Instantiate(Hotdog["SauceKetchup"], _orderHolder[orderNumber].position, Quaternion.identity);
@@ -227,7 +223,7 @@ public class Order : MonoBehaviour
                 saucemustard.name = "HotdogSauce";
                 orderNumber += 1;
                 break;
-        }
+        }*/
         if (randomIngredient >= 2 && StaticK.Difficulty >= 1)
         {
             GameObject union = Instantiate(Hotdog["Union"], _orderHolder[orderNumber].position, Quaternion.identity);
@@ -237,10 +233,11 @@ public class Order : MonoBehaviour
     }
 
     /*
-        In the AddIngredientsToList function all possible ingredients are added to the right lists.
+        In the AddIngredientsToList function all possible ingrediënts are added to the right lists.
         In the inspector they are added to a few lists, and now they are added to a dictionary for the right order.
         This is so we can call out the name of the ingredient while making the order.
-        For burgers the sauce can be one of 3 things to give more variety. .
+        For burgers the sauce can be one of 3 things to give more variety.
+        The variety goes for multiple ingrediënts.
      */
 
     private void AddIngrdientsToList()
@@ -268,5 +265,18 @@ public class Order : MonoBehaviour
         Pizza.Add("Mozarella", _extra[1]);
         Pizza.Add("Pesto", _extra[2]);
         Pizza.Add("PineApple", _extra[3]);
+    }
+
+    // Under is a reset function so when the order is done, a new customer can post his order.
+    private void ResetOrder()
+    {
+        for(int i = 0; i < _orderHolder.Count; i++)
+        {
+            foreach (Transform child in _orderHolder[i])
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+        }
+
     }
 }

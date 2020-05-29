@@ -4,18 +4,8 @@ using UnityEngine;
 
 public class OptionsScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //The difficulty is managed here from the options menu, afterwards this is used in orders to give harder orders the higher the difficulty.
     public void DifficultyManager(int difficulty)
     {
         switch (difficulty)

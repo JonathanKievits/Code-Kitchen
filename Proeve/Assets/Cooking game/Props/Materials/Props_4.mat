@@ -21,19 +21,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_4FD5A9C3:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: e30a12b205e199c41a50e69b3cd99b2e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_64881BEE:
-        m_Texture: {fileID: 2800000, guid: e40497d50cfcb224ba07b0af6e394766, type: 3}
+        m_Texture: {fileID: 2800000, guid: 00e4b8eb6940b3044afb64787200841a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_BCA362FE:
-        m_Texture: {fileID: 2800000, guid: 091906c83fcc46045ab9eed356906650, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8aaa5298b44d6b846b4cad5a6970698c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_D13B4415:
-        m_Texture: {fileID: 2800000, guid: a9206d77e2f6a884483b785261b3438f, type: 3}
+        m_Texture: {fileID: 2800000, guid: ffaf11f20639a564a94e22a7a7daad5c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -70,7 +70,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Boolean_205CDFFF: 0
-    - Boolean_407DCE29: 0
+    - Boolean_407DCE29: 1
     - Boolean_8F7CF40: 1
     - Boolean_8F835121: 0
     - Boolean_C19C5878: 0
@@ -82,14 +82,14 @@ Material:
     - Vector1_25125B1: 1
     - Vector1_2A1C355C: 0
     - Vector1_3767B562: 0.432
-    - Vector1_3F80ADB6: 0.025
+    - Vector1_3F80ADB6: 0.0197
     - Vector1_45642C25: 1
-    - Vector1_480F4B9E: 0.327
-    - Vector1_57F6EA51: 1
+    - Vector1_480F4B9E: 0.348
+    - Vector1_57F6EA51: 12.32
     - Vector1_6EF2F065: 10
     - Vector1_74ABCF48: 1
     - Vector1_798B93CB: 10.7
-    - Vector1_8214C778: 5.11
+    - Vector1_8214C778: 15
     - Vector1_914814A0: 0
     - Vector1_97C9D898: 3
     - Vector1_983C278A: 1
@@ -104,7 +104,7 @@ Material:
     - Vector1_E072B2B8: 1
     - Vector1_E146EA16: 0
     - Vector1_E2ED5FCF: 0.0236
-    - Vector1_F21C91C7: 0.339
+    - Vector1_F21C91C7: 0.273
     - Vector1_F898A44: 0.0281
     - Vector1_F9063598: 1
     - Vector1_FD707078: -0.02

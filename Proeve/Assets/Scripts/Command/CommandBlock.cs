@@ -46,6 +46,22 @@ public class CommandBlock : MonoBehaviour
     public GameObject Bacon;
     //this is the Union
     public GameObject Union;
+    //this is the sandwich bottom
+    public GameObject SandwichBottom;
+    //this is the sandwich top
+    public GameObject SandwichTop;
+    //this is the fries
+    public GameObject Fries;
+    //this is the cherry
+    public GameObject Cherry;
+    //this is the chicken
+    public GameObject Chicken;
+    //this is the strawberry icecream
+    public GameObject StrawberryIce;
+    //this is the chocolate icecream
+    public GameObject ChocolateIce;
+    //this is the ice cone
+    public GameObject Cone;
 
     private Order _order;
     private string _commandCode;
@@ -65,7 +81,14 @@ public class CommandBlock : MonoBehaviour
         {
             int _intConverter = Int32.Parse(tmp[1]);
             int _costomerInt = /*Int32.Parse(tmp[2])*/2;
+            if(tmp[2] == ";")
             _checkIngredient(tmp[0], _intConverter, _costomerInt);
+            else
+            {
+                StaticK.WrongInput = true;
+                StaticK.CommandString = "Je mist de ; aan het einde";
+            }
+                
         }
         catch (Exception e)
         {
@@ -147,7 +170,7 @@ public class CommandBlock : MonoBehaviour
                     StaticK.PreviousBottom = "HotdogBottom";
                     StartCoroutine(_spawnIngredient(HotdogBun, _numberOfIngredient, _localSpawnLocation, "HotdogBase"));
                     break;
-                case "GetAugruk":
+                case "GetAugurk":
                     StaticK.PreviousCommandSize = "Small";
                     StartCoroutine(_spawnIngredient(Pickle, _numberOfIngredient, _localSpawnLocation, "HotdogUnion"));
                     break;
@@ -175,6 +198,41 @@ public class CommandBlock : MonoBehaviour
                     StaticK.PreviousCommandSize = "Pizza";
                     StaticK.PreviousBottom = "PizzaBottom";
                     StartCoroutine(_spawnIngredient(Bacon, _numberOfIngredient, _localSpawnLocation, "Pizza"));
+                    break;
+                case "GetSandwichTop":
+                    StaticK.PreviousCommandSize = "Long";
+                    StartCoroutine(_spawnIngredient(SandwichTop, _numberOfIngredient, _localSpawnLocation, "SandwichTop"));
+                    break;
+                case "GetSandwichBottom":
+                    StaticK.PreviousCommandSize = "Long";
+                    StaticK.PreviousBottom = "HotdogBottom";
+                    StartCoroutine(_spawnIngredient(SandwichBottom, _numberOfIngredient, _localSpawnLocation, "SandwichBottom"));
+                    break;
+                case "GetFriet":
+                    StaticK.PreviousCommandSize = "Fries";
+                    StaticK.PreviousBottom = "Fries";
+                    StartCoroutine(_spawnIngredient(Fries, _numberOfIngredient, _localSpawnLocation, "Friet"));
+                    break;
+                case "GetKers":
+                    StaticK.PreviousCommandSize = "Round";
+                    StartCoroutine(_spawnIngredient(Cherry, _numberOfIngredient, _localSpawnLocation, "Cherry"));
+                    break;
+                case "GetKip":
+                    StaticK.PreviousCommandSize = "Long";
+                    StartCoroutine(_spawnIngredient(Chicken, _numberOfIngredient, _localSpawnLocation, "Chicken"));
+                    break;
+                case "GetIjsAardbei":
+                    StaticK.PreviousCommandSize = "Round";
+                    StartCoroutine(_spawnIngredient(StrawberryIce, _numberOfIngredient, _localSpawnLocation, "Strawberry"));
+                    break;
+                case "GetIjsChoco":
+                    StaticK.PreviousCommandSize = "Round";
+                    StartCoroutine(_spawnIngredient(ChocolateIce, _numberOfIngredient, _localSpawnLocation, "Chocolate"));
+                    break;
+                case "GetIjshoorntje":
+                    StaticK.PreviousCommandSize = "Round";
+                    StaticK.PreviousBottom = "Cone";
+                    StartCoroutine(_spawnIngredient(Cone, _numberOfIngredient, _localSpawnLocation, "IceCone"));
                     break;
                 case "Klaar":
                     GiveCustomerFood(_localSpawnLocation);
@@ -229,14 +287,14 @@ public class CommandBlock : MonoBehaviour
                     }
                     break;
                 default:
-                    _smallIngredientSpawnLocationX = 0.044f; _smallIngredientSpawnLocationZ = 0.01f; StaticK.NumberSmalIngredient = -1;
+                    _smallIngredientSpawnLocationX = 0.7f; _smallIngredientSpawnLocationZ = 0.15f; StaticK.NumberSmalIngredient = -1;
                     break;
             }
             if (StaticK.PreviousCommandSize == "Round" || StaticK.PreviousCommandSize == "Long" || StaticK.PreviousCommandSize == "BurgerLong" || StaticK.PreviousCommandSize == "PizzaRound")
             {
                 yield return new WaitForSeconds(_respawsTime);
-                GameObject _gameObject = Instantiate(_whatSpawned, _ingredientSpawnLocation) as GameObject;
                 _whatSpawned.name = _ingredientName;
+                GameObject _gameObject = Instantiate(_whatSpawned, _ingredientSpawnLocation) as GameObject;
                 StaticK.NumberSmalIngredient = 0;
                 _i++;
             }
@@ -244,11 +302,11 @@ public class CommandBlock : MonoBehaviour
             {
                 int _rotation = 0;
                 if (_ingredientName == "HotdogUnion")
-                    _rotation = -110;
+                    _rotation = -110; _smallIngredientSpawnLocationZ += -0.154f;
                 yield return new WaitForSeconds(_respawsTime);
-                GameObject _gameObject = Instantiate(_whatSpawned, new Vector3(_ingredientSpawnLocation.position.x + _smallIngredientSpawnLocationX, _ingredientSpawnLocation.position.y, _ingredientSpawnLocation.position.z + _smallIngredientSpawnLocationZ), Quaternion.Euler(_rotation,0,0)) as GameObject;
-                StaticK.NumberSmalIngredient++;
                 _whatSpawned.name = _ingredientName;
+                GameObject _gameObject = Instantiate(_whatSpawned, new Vector3(_ingredientSpawnLocation.position.x + _smallIngredientSpawnLocationX, _ingredientSpawnLocation.position.y, _ingredientSpawnLocation.position.z + _smallIngredientSpawnLocationZ), Quaternion.Euler(_rotation, 0, 0)) as GameObject;
+                StaticK.NumberSmalIngredient++;
                 _gameObject.transform.SetParent(_ingredientSpawnLocation.transform);
                 _i++;
             }
@@ -260,7 +318,6 @@ public class CommandBlock : MonoBehaviour
         int TempInt = 6;
         for (int i = 0; i < _ingredientSpawnLocation.childCount; i++)
         {
-            print(Order.transform.childCount);
             string _orderIngredient = "place" + (/*Order.transform.childCount*/TempInt - i);
             var _trueOrderIngredient = Order.transform.Find(_orderIngredient).GetChild(0);
             var _falseOrderIngredient = _ingredientSpawnLocation.GetChild(i);
@@ -276,8 +333,11 @@ public class CommandBlock : MonoBehaviour
         {
             GameObject.Destroy(child.gameObject);
         }
-        if(!StaticK.WrongInput && _ingredientSpawnLocation.childCount != 0)
+        if (!StaticK.WrongInput && _ingredientSpawnLocation.childCount != 0)
+        {
+           // _order.GenerateOrder();
             StaticK.CommandString = "Bedankt voor het eten!";
+        }
     }
 }
 
