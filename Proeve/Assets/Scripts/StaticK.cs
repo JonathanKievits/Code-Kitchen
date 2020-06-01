@@ -16,4 +16,6 @@ public class StaticK : MonoBehaviour
     public static bool WrongInput;
     //this will check what the game difficulty is
     public static int Difficulty;
+    //this will check if you are allowd to typ
+    public static bool Activate;
 }

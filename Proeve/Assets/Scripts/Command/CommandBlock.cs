@@ -38,7 +38,11 @@ public class CommandBlock : MonoBehaviour
     public GameObject Mayonaise;
     //this is the pickle
     public GameObject Pickle;
-    //this is the order
+    //this is the left order
+    public GameObject LeftOrder;
+    //this is the right order
+    public GameObject RightOrder;
+    //this is the  order
     public GameObject Order;
     //this is the cheese 
     public GameObject Cheese;
@@ -70,23 +74,29 @@ public class CommandBlock : MonoBehaviour
     private float _respawsTime = 0.5f;
     private float _smallIngredientSpawnLocationX;
     private float _smallIngredientSpawnLocationZ;
+    private GameObject _orderLocation;
 
     //this puts the command line in the textfield
     private void _storeCode()
     {
         _commandCode = InputField.GetComponent<Text>().text;
         StaticK.CommandString = _commandCode;
-        string[] tmp = _commandCode.Split('(', /*',',*/ ')');
+        string[] tmp = _commandCode.Split('(', ',', ')');
         try
         {
-            int _intConverter = Int32.Parse(tmp[1]);
-            int _costomerInt = /*Int32.Parse(tmp[2])*/2;
-            if(tmp[2] == ";")
-            _checkIngredient(tmp[0], _intConverter, _costomerInt);
+            if (StaticK.Activate == true)
+                StaticK.CommandString = "Ga naar de klanten";
             else
             {
-                StaticK.WrongInput = true;
-                StaticK.CommandString = "Je mist de ; aan het einde";
+                int _intConverter = Int32.Parse(tmp[1]);
+                int _costomerInt = Int32.Parse(tmp[2]);
+                if (tmp[3] == ";")
+                    _checkIngredient(tmp[0], _intConverter, _costomerInt);
+                else
+                {
+                    StaticK.WrongInput = true;
+                    StaticK.CommandString = "Je mist de ; aan het einde";
+                }
             }
                 
         }
@@ -235,7 +245,7 @@ public class CommandBlock : MonoBehaviour
                     StartCoroutine(_spawnIngredient(Cone, _numberOfIngredient, _localSpawnLocation, "IceCone"));
                     break;
                 case "Klaar":
-                    GiveCustomerFood(_localSpawnLocation);
+                    GiveCustomerFood(_localSpawnLocation, _customerLocation);
                     break;
                 default:
                     StaticK.CommandString = _nameIngredient + " bestaat niet";
@@ -313,13 +323,29 @@ public class CommandBlock : MonoBehaviour
         }
     }
     //this will give the ingredients to the customer
-    public void GiveCustomerFood(Transform _ingredientSpawnLocation)
+    public void GiveCustomerFood(Transform _ingredientSpawnLocation, int _customerInt)
     {
-        int TempInt = 6;
+        
+        switch (_customerInt)
+        {
+            case 1:
+                _orderLocation = LeftOrder;
+                break;
+            case 2:
+                _orderLocation = Order;
+                break;
+            case 3:
+                _orderLocation = RightOrder;
+                break;
+            default:
+                _orderLocation = null;
+                break;
+        }
+
         for (int i = 0; i < _ingredientSpawnLocation.childCount; i++)
         {
-            string _orderIngredient = "place" + (/*Order.transform.childCount*/TempInt - i);
-            var _trueOrderIngredient = Order.transform.Find(_orderIngredient).GetChild(0);
+            string _orderIngredient = "place" + (_orderLocation.transform.childCount - i);
+            var _trueOrderIngredient = _orderLocation.transform.Find(_orderIngredient).GetChild(0);
             var _falseOrderIngredient = _ingredientSpawnLocation.GetChild(i);
             string[] tmp = _falseOrderIngredient.transform.name.Split('(');
             if (tmp[0] != _trueOrderIngredient.transform.name)
@@ -335,7 +361,6 @@ public class CommandBlock : MonoBehaviour
         }
         if (!StaticK.WrongInput && _ingredientSpawnLocation.childCount != 0)
         {
-           // _order.GenerateOrder();
             StaticK.CommandString = "Bedankt voor het eten!";
         }
     }
