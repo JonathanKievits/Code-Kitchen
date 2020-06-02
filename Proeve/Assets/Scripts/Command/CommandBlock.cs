@@ -66,7 +66,27 @@ public class CommandBlock : MonoBehaviour
     public GameObject ChocolateIce;
     //this is the ice cone
     public GameObject Cone;
+    //this is the left icecreamOrder
+    public GameObject LeftIceOrder;
+    //this is the Middle icecreamOrder
+    public GameObject MiddleIceOrder;
+    //this is the Right icecreamOrder
+    public GameObject RightIceOrder;
+    //this is the left customer
+    public AnimationScript leftAnimation;
+    //this is the middle customer
+    public AnimationScript MiddleAnimation;
+    //this is the right customer
+    public AnimationScript RightAnimation;
+    //this is the order script for the right customer
+    public Order OrderRight;
+    //this is the order script for the Middle customer
+    public Order OrderMiddle;
+    //this is the order script for the Left customer
+    public Order OrderLeft;
 
+
+    private AnimationScript _animation;
     private Order _order;
     private string _commandCode;
     private string _multipleLines;
@@ -75,6 +95,7 @@ public class CommandBlock : MonoBehaviour
     private float _smallIngredientSpawnLocationX;
     private float _smallIngredientSpawnLocationZ;
     private GameObject _orderLocation;
+    private bool _icecreamOrder;
 
     //this puts the command line in the textfield
     private void _storeCode()
@@ -188,9 +209,9 @@ public class CommandBlock : MonoBehaviour
                     StaticK.PreviousCommandSize = "Small";
                     StartCoroutine(_spawnIngredient(Union, _numberOfIngredient, _localSpawnLocation, "BurgerUnion"));
                     break;
-                case "GetMayonaise123":
+                case "GetMosterd":
                     StaticK.PreviousCommandSize = "Long";
-                    StartCoroutine(_spawnIngredient(Mayonaise, _numberOfIngredient, _localSpawnLocation, "BurgerSauce"));
+                    StartCoroutine(_spawnIngredient(Mayonaise, _numberOfIngredient, _localSpawnLocation, "HotdogSauce"));
                     break;
                 case "GetKetchup":
                     StaticK.PreviousCommandSize = "Long";
@@ -242,10 +263,14 @@ public class CommandBlock : MonoBehaviour
                 case "GetIjshoorntje":
                     StaticK.PreviousCommandSize = "Round";
                     StaticK.PreviousBottom = "Cone";
+                    _icecreamOrder = true;
                     StartCoroutine(_spawnIngredient(Cone, _numberOfIngredient, _localSpawnLocation, "IceHorn"));
                     break;
                 case "Klaar":
                     GiveCustomerFood(_localSpawnLocation, _customerLocation);
+                    break;
+                case "Test":
+                    _animation.IsFinished(true, 1);
                     break;
                 default:
                     StaticK.CommandString = _nameIngredient + " bestaat niet";
@@ -329,13 +354,28 @@ public class CommandBlock : MonoBehaviour
         switch (_customerInt)
         {
             case 1:
-                _orderLocation = LeftOrder;
+                if (_icecreamOrder)
+                    _orderLocation = LeftIceOrder;
+                else
+                    _orderLocation = LeftOrder;
+                _animation = leftAnimation;
+                _order = OrderLeft;
                 break;
             case 2:
-                _orderLocation = Order;
+                if (_icecreamOrder)
+                    _orderLocation = MiddleIceOrder;
+                else
+                    _orderLocation = Order;
+                _animation = MiddleAnimation;
+                _order = OrderMiddle;
                 break;
             case 3:
-                _orderLocation = RightOrder;
+                if (_icecreamOrder)
+                    _orderLocation = RightIceOrder;
+                else
+                    _orderLocation = RightOrder;
+                _animation = RightAnimation;                
+                _order = OrderRight;
                 break;
             default:
                 _orderLocation = null;
@@ -344,7 +384,9 @@ public class CommandBlock : MonoBehaviour
 
         for (int i = 0; i < _ingredientSpawnLocation.childCount; i++)
         {
-            string _orderIngredient = "place" + (_orderLocation.transform.childCount - i);
+            string _orderIngredient = "place" + (_orderLocation.transform.childCount - i - 1);
+            if (_icecreamOrder)
+                _orderIngredient = "Place" + (_orderLocation.transform.childCount - i);
             var _trueOrderIngredient = _orderLocation.transform.Find(_orderIngredient).GetChild(0);
             var _falseOrderIngredient = _ingredientSpawnLocation.GetChild(i);
             string[] tmp = _falseOrderIngredient.transform.name.Split('(');
@@ -362,6 +404,8 @@ public class CommandBlock : MonoBehaviour
         if (!StaticK.WrongInput && _ingredientSpawnLocation.childCount != 0)
         {
             StaticK.CommandString = "Bedankt voor het eten!";
+            _animation.IsFinished(true, _customerInt);
+            _order.ResetOrder();
         }
     }
 }
