@@ -6,20 +6,16 @@ public class OptionsScript : MonoBehaviour
 {
 
     //The difficulty is managed here from the options menu, afterwards this is used in orders to give harder orders the higher the difficulty.
-    public void DifficultyManager(int difficulty)
+    public void DifficultyEasy()
     {
-        switch (difficulty)
-        {
-            case 0:
-                StaticK.Difficulty = 0;
-                break;
-            case 1:
-                StaticK.Difficulty = 1;
-                break;
-            case 2:
-                StaticK.Difficulty = 2;
-                break;
-        }
-
+        StaticK.Difficulty = 0;
+    }
+    public void DifficultyNormal()
+    {
+        StaticK.Difficulty = 1;
+    }
+    public void DifficultyHard()
+    {
+        StaticK.Difficulty = 2;
     }
 }
