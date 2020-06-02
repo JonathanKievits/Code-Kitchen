@@ -184,7 +184,7 @@ public class CommandBlock : MonoBehaviour
                     StaticK.PreviousCommandSize = "Small";
                     StartCoroutine(_spawnIngredient(Pickle, _numberOfIngredient, _localSpawnLocation, "HotdogUnion"));
                     break;
-                case "GetUitjes":
+                case "GetUitje":
                     StaticK.PreviousCommandSize = "Small";
                     StartCoroutine(_spawnIngredient(Union, _numberOfIngredient, _localSpawnLocation, "BurgerUnion"));
                     break;
@@ -209,11 +209,11 @@ public class CommandBlock : MonoBehaviour
                     StaticK.PreviousBottom = "PizzaBottom";
                     StartCoroutine(_spawnIngredient(Bacon, _numberOfIngredient, _localSpawnLocation, "Pizza"));
                     break;
-                case "GetSandwichTop":
+                case "GetTopSandwich":
                     StaticK.PreviousCommandSize = "Long";
                     StartCoroutine(_spawnIngredient(SandwichTop, _numberOfIngredient, _localSpawnLocation, "SandwichTop"));
                     break;
-                case "GetSandwichBottom":
+                case "GetOnderSandwich":
                     StaticK.PreviousCommandSize = "Long";
                     StaticK.PreviousBottom = "HotdogBottom";
                     StartCoroutine(_spawnIngredient(SandwichBottom, _numberOfIngredient, _localSpawnLocation, "SandwichBottom"));
@@ -225,7 +225,7 @@ public class CommandBlock : MonoBehaviour
                     break;
                 case "GetKers":
                     StaticK.PreviousCommandSize = "Round";
-                    StartCoroutine(_spawnIngredient(Cherry, _numberOfIngredient, _localSpawnLocation, "Cherry"));
+                    StartCoroutine(_spawnIngredient(Cherry, _numberOfIngredient, _localSpawnLocation, "IceCherry"));
                     break;
                 case "GetKip":
                     StaticK.PreviousCommandSize = "Long";
@@ -233,16 +233,16 @@ public class CommandBlock : MonoBehaviour
                     break;
                 case "GetIjsAardbei":
                     StaticK.PreviousCommandSize = "Round";
-                    StartCoroutine(_spawnIngredient(StrawberryIce, _numberOfIngredient, _localSpawnLocation, "Strawberry"));
+                    StartCoroutine(_spawnIngredient(StrawberryIce, _numberOfIngredient, _localSpawnLocation, "IceStrawberry"));
                     break;
                 case "GetIjsChoco":
                     StaticK.PreviousCommandSize = "Round";
-                    StartCoroutine(_spawnIngredient(ChocolateIce, _numberOfIngredient, _localSpawnLocation, "Chocolate"));
+                    StartCoroutine(_spawnIngredient(ChocolateIce, _numberOfIngredient, _localSpawnLocation, "IceChocolate"));
                     break;
                 case "GetIjshoorntje":
                     StaticK.PreviousCommandSize = "Round";
                     StaticK.PreviousBottom = "Cone";
-                    StartCoroutine(_spawnIngredient(Cone, _numberOfIngredient, _localSpawnLocation, "IceCone"));
+                    StartCoroutine(_spawnIngredient(Cone, _numberOfIngredient, _localSpawnLocation, "IceHorn"));
                     break;
                 case "Klaar":
                     GiveCustomerFood(_localSpawnLocation, _customerLocation);
