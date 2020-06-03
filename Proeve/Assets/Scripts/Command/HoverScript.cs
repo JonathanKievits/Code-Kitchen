@@ -11,6 +11,8 @@ public class HoverScript : MonoBehaviour
     public Text DisplayText;
     //this will display the Order;
     public GameObject DisplayOrder;
+    //this will show if the customer is ready to order
+    public bool ReadyToOrder = true;
     
     
     
@@ -27,7 +29,8 @@ public class HoverScript : MonoBehaviour
 
     void Update()
     {
-        FadeText();
+        if(!ReadyToOrder)
+            FadeText();
     }
 
     private void OnMouseOver()

@@ -41,7 +41,7 @@ public class ButtonScript : MonoBehaviour
             Ingredients.SetActive(true);
             Button.SetActive(true);
             _Deactiavetd = false;
-            StaticK.Activate = false;
+            StaticK.Activate = true;
         }
         else
         {
@@ -49,7 +49,7 @@ public class ButtonScript : MonoBehaviour
             Ingredients.SetActive(false);
             Button.SetActive(false);
             _Deactiavetd = true;
-            StaticK.Activate = true;
+            StaticK.Activate = false;
         }
     }
 }
