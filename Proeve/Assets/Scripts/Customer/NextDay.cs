@@ -1,10 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NextDay : MonoBehaviour
 {
+    [SerializeField]
+    private Text _dayText = null;
+
     private int _customerAmount = 5;
+    private int _currentDay = 0;
 
     void Start()
     {
@@ -42,8 +47,11 @@ public class NextDay : MonoBehaviour
         }     
     }
 
+    //resets the customer amount, and starts a new day
     private void StartNextDay()
     {
         CheckDifficulty();
+        _currentDay += 1;
+        _dayText.text = "Day " + _currentDay;
     }
 }
