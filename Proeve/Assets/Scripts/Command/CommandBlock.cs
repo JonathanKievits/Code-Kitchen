@@ -92,8 +92,6 @@ public class CommandBlock : MonoBehaviour
     private string _multipleLines;
     private string _wrongMultipleLines;
     private float _respawsTime = 0.5f;
-    private float _smallIngredientSpawnLocationX;
-    private float _smallIngredientSpawnLocationZ;
     private GameObject _orderLocation;
     private bool _icecreamOrder;
 
@@ -130,18 +128,21 @@ public class CommandBlock : MonoBehaviour
         {
             _multipleLines = StaticK.CommandString + Environment.NewLine + _multipleLines;
             _wrongMultipleLines = "" + Environment.NewLine + _wrongMultipleLines;
-            CodeDisplay.GetComponent<Text>().text = _multipleLines;
-            WrongCodeDispaly.GetComponent<Text>().text = _wrongMultipleLines;
+            _codeDisplay(_multipleLines, _wrongMultipleLines);
         }
         else
         {
             _multipleLines = "" + Environment.NewLine + _multipleLines;
             _wrongMultipleLines = StaticK.CommandString + Environment.NewLine + _wrongMultipleLines;
-            CodeDisplay.GetComponent<Text>().text = _multipleLines;
-            WrongCodeDispaly.GetComponent<Text>().text = _wrongMultipleLines;
+            _codeDisplay(_multipleLines, _wrongMultipleLines);
             StaticK.WrongInput = false;
         }
         InputField.GetComponent<Text>().text = " ";
+    }
+    private void _codeDisplay(string _multipleLines,string _wrongMultipleLines )
+    {
+        CodeDisplay.GetComponent<Text>().text = _multipleLines;
+        WrongCodeDispaly.GetComponent<Text>().text = _wrongMultipleLines;
     }
 
     public void Apply()
@@ -263,7 +264,6 @@ public class CommandBlock : MonoBehaviour
                 yield return new WaitForSeconds(_respawsTime);
                 _whatSpawned.name = _ingredientName;
                 GameObject _gameObject = Instantiate(_whatSpawned, _ingredientSpawnLocation) as GameObject;
-                StaticK.NumberSmalIngredient = 0;
                 _i++;
         }
     }
