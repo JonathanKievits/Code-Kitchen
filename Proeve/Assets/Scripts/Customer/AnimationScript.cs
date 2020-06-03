@@ -83,6 +83,21 @@ public class AnimationScript : MonoBehaviour
             _walkBack = true;
         }
 
+
+        if (_collision.gameObject.name == "ReturnWall")
+        {
+            Debug.Log(StaticK.CustomersLeft);
+            if (StaticK.CustomersLeft > 3)
+            {
+                _walkBack = true;
+            }
+
+            if (StaticK.CustomersLeft < 3)
+            {
+                _walking = false;
+            }
+        }
+
     }
     private void _BackToSeat()
     {
