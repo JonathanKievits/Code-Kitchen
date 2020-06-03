@@ -106,7 +106,7 @@ public class CommandBlock : MonoBehaviour
     {
         _commandCode = InputField.GetComponent<Text>().text;
         StaticK.CommandString = _commandCode;
-        string[] tmp = _commandCode.Split('(', ',', ')');
+        string[] tmp = _commandCode.Split('(', /*',',*/ ')');
         try
         {
             if (StaticK.Activate == true)
@@ -114,9 +114,9 @@ public class CommandBlock : MonoBehaviour
             else
             {
                 int _intConverter = Int32.Parse(tmp[1]);
-                int _costomerInt = Int32.Parse(tmp[2]);
-                if (tmp[3] == ";")
-                    _checkIngredient(tmp[0], _intConverter, _costomerInt);
+                //int _costomerInt = Int32.Parse(tmp[2]);
+                if (tmp[2] == ";")
+                    _checkIngredient(tmp[0], _intConverter, 3);
                 else
                 {
                     StaticK.WrongInput = true;
@@ -150,6 +150,7 @@ public class CommandBlock : MonoBehaviour
     {
         CodeDisplay.GetComponent<Text>().text = _multipleLines;
         WrongCodeDispaly.GetComponent<Text>().text = _wrongMultipleLines;
+        _icecreamOrder = false;
     }
 
     public void Apply()
@@ -231,18 +232,15 @@ public class CommandBlock : MonoBehaviour
                     StartCoroutine(_spawnIngredient(Fries, _numberOfIngredient, _localSpawnLocation, "Friet"));
                     break;
                 case "GetKers":
-                    _icecreamOrder = true;
                     StartCoroutine(_spawnIngredient(Cherry, _numberOfIngredient, _localSpawnLocation, "IceCherry"));
                     break;
                 case "GetKip":
                     StartCoroutine(_spawnIngredient(Chicken, _numberOfIngredient, _localSpawnLocation, "Chicken"));
                     break;
                 case "GetIjsAardbei":
-                    _icecreamOrder = true;
                     StartCoroutine(_spawnIngredient(StrawberryIce, _numberOfIngredient, _localSpawnLocation, "IceStrawberry"));
                     break;
                 case "GetIjsChoco":
-                    _icecreamOrder = true;
                     StartCoroutine(_spawnIngredient(ChocolateIce, _numberOfIngredient, _localSpawnLocation, "IceChocolate"));
                     break;
                 case "GetIjshoorntje":
@@ -335,7 +333,6 @@ public class CommandBlock : MonoBehaviour
         if (!StaticK.WrongInput && _ingredientSpawnLocation.childCount != 0)
         {
             _nextDay = NextDayScript;
-            _icecreamOrder = false;
             StaticK.CommandString = "Bedankt voor het eten!";
             _animation.IsFinished(true, _customerInt);
             _order.ResetOrder();

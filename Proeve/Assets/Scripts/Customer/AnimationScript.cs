@@ -31,7 +31,7 @@ public class AnimationScript : MonoBehaviour
         {
             transform.Translate(Vector3.forward * Time.deltaTime * 1.5f);
         } 
-        else if(_walkBack && _walking)
+        else if(_walkBack)
         {
             transform.Translate(Vector3.forward * Time.deltaTime * 1.5f);
         }

@@ -15,11 +15,9 @@ public class StaticK : MonoBehaviour
     //this will check if there is a wrong input
     public static bool WrongInput;
     //this will check what the game difficulty is
-    public static int Difficulty;
+    public static int Difficulty =1;
     //this will check if you are allowd to typ
     public static bool Activate;
     //This will check how many customers are left
     public static int CustomersLeft;
-    //This will check the current day
-    public static int CurrentDay;
 }

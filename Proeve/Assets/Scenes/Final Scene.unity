@@ -4716,7 +4716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &416300978
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4752,6 +4752,7 @@ MonoBehaviour:
   Spawner: {fileID: 1096333200}
   Ingredients: {fileID: 773794085}
   Button: {fileID: 416300977}
+  Dienblad: {fileID: 1030898393}
 --- !u!114 &416300980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12126,6 +12127,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: character placeholder ani (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3695532728680632930, guid: 2016107ba6277d84b9dd31d6cee1891d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3841982082634499610, guid: 2016107ba6277d84b9dd31d6cee1891d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -12800,6 +12806,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025258701}
   m_CullTransparentMesh: 0
+--- !u!1 &1030898393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6087245230195230058, guid: 2016107ba6277d84b9dd31d6cee1891d,
+    type: 3}
+  m_PrefabInstance: {fileID: 933915362}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1033883876 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5673574309904299205, guid: 6d3745936ec44334f8503ea361cf73c0,
@@ -15615,6 +15627,7 @@ MonoBehaviour:
   Spawner: {fileID: 1096333200}
   Ingredients: {fileID: 773794085}
   Button: {fileID: 1356600678}
+  Dienblad: {fileID: 0}
 --- !u!1 &1361082620
 GameObject:
   m_ObjectHideFlags: 0
@@ -16406,7 +16419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1429313340
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16442,6 +16455,7 @@ MonoBehaviour:
   Spawner: {fileID: 2039194584}
   Ingredients: {fileID: 1096333200}
   Button: {fileID: 416300977}
+  Dienblad: {fileID: 399633692}
 --- !u!114 &1429313342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16701,6 +16715,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: bord en dienblad prefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2116304272343739351, guid: bbc9a44188d55d245982396a388c13ac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2804817275535812917, guid: bbc9a44188d55d245982396a388c13ac,
         type: 3}
@@ -18443,6 +18462,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: character placeholder ani
+      objectReference: {fileID: 0}
+    - target: {fileID: 3695532728680632930, guid: 2016107ba6277d84b9dd31d6cee1891d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3841982082634499610, guid: 2016107ba6277d84b9dd31d6cee1891d,
         type: 3}
@@ -22499,7 +22523,7 @@ PrefabInstance:
     - target: {fileID: 6112794940480156657, guid: 5f3f0d48f7678d54798d72ef849b647a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7948377530794332828, guid: 5f3f0d48f7678d54798d72ef849b647a,
         type: 3}
@@ -23490,6 +23514,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: bord en dienblad prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2116304272343739351, guid: bbc9a44188d55d245982396a388c13ac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2804817275535812917, guid: bbc9a44188d55d245982396a388c13ac,
         type: 3}
