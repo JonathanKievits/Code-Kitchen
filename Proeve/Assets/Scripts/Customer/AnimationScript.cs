@@ -65,15 +65,15 @@ public class AnimationScript : MonoBehaviour
         {
             if (_collision.gameObject.name == "Seat1" && CustomerNumber == 3)
             {
-                _BackToSeat();
+                _returnToSeat();
             }
             else if (_collision.gameObject.name == "Seat2" && CustomerNumber == 2)
             {
-                _BackToSeat();
+                _returnToSeat();
             }
             else if (_collision.gameObject.name == "Seat3" && CustomerNumber == 1)
             {
-                _BackToSeat();
+                _returnToSeat();
             }
         }
         if (_collision.gameObject.name == "ReturnWall" && !_walkBack)
@@ -99,7 +99,7 @@ public class AnimationScript : MonoBehaviour
         }
 
     }
-    private void _BackToSeat()
+    private void _returnToSeat()
     {
         _walkBack = false;
         _walking = false;
