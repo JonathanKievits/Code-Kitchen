@@ -29,11 +29,11 @@ public class AnimationScript : MonoBehaviour
         
         if (_walking && !_walkBack)
         {
-            transform.Translate(Vector3.left * Time.deltaTime * 1.5f);
+            transform.Translate(Vector3.forward * Time.deltaTime * 1.5f);
         } 
         else if(_walkBack)
         {
-            transform.Translate(Vector3.right * Time.deltaTime * 1.5f);
+            transform.Translate(Vector3.forward * Time.deltaTime * 1.5f);
         }
         
     }
@@ -56,6 +56,8 @@ public class AnimationScript : MonoBehaviour
     {
         _walking = true;
         transform.position = new Vector3(transform.position.x, transform.position.y, -0.5f);
+        Quaternion _target = Quaternion.Euler(0, -90, 0);
+        transform.rotation = Quaternion.Slerp(transform.rotation, _target, Time.deltaTime * 1000);
 
     }
     private void OnCollisionEnter(Collision _collision)
@@ -105,6 +107,8 @@ public class AnimationScript : MonoBehaviour
         _walking = false;
         _animation.SetBool("IsFinished", false);
         transform.position = new Vector3(transform.position.x, transform.position.y, 0.5f);
+        Quaternion _target = Quaternion.Euler(0, 0, 0);
+        transform.rotation = Quaternion.Slerp(transform.rotation, _target, Time.deltaTime * 1000);
         OrderLeft.GenerateOrder();
     }
 }
