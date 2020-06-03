@@ -10,6 +10,8 @@ public class ButtonScript : MonoBehaviour
     public GameObject Ingredients;
     //this is the Next ingredient button
     public GameObject Button;
+    //this is the dienblad
+    public GameObject Dienblad;
 
     private bool _replacement = false;
     private bool _Deactiavetd = true;
@@ -39,6 +41,7 @@ public class ButtonScript : MonoBehaviour
         {
             Spawner.SetActive(false);
             Ingredients.SetActive(true);
+            Dienblad.SetActive(false);
             Button.SetActive(true);
             _Deactiavetd = false;
             StaticK.Activate = true;
@@ -47,6 +50,7 @@ public class ButtonScript : MonoBehaviour
         {
             Spawner.SetActive(true);
             Ingredients.SetActive(false);
+            Dienblad.SetActive(true);
             Button.SetActive(false);
             _Deactiavetd = true;
             StaticK.Activate = false;
