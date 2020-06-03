@@ -65,28 +65,15 @@ public class AnimationScript : MonoBehaviour
         {
             if (_collision.gameObject.name == "Seat1" && CustomerNumber == 3)
             {
-                _walkBack = false;
-                _walking = false;
-                _animation.SetBool("IsFinished", false);
-                transform.position = new Vector3(transform.position.x, transform.position.y, 0.5f);
-                OrderRight.GenerateOrder();
+                _returnToSeat();
             }
             else if (_collision.gameObject.name == "Seat2" && CustomerNumber == 2)
             {
-                _walkBack = false;
-                _walking = false;
-                _animation.SetBool("IsFinished", false);
-                transform.position = new Vector3(transform.position.x, transform.position.y, 0.5f);
-                OrderMiddle.GenerateOrder();
+                _returnToSeat();
             }
             else if (_collision.gameObject.name == "Seat3" && CustomerNumber == 1)
             {
-                Parent.transform.position = new Vector3(transform.position.x - 10, transform.position.y, transform.position.z);
-                _walkBack = false;
-                _walking = false;
-                _animation.SetBool("IsFinished", false);
-                transform.position = new Vector3(transform.position.x, transform.position.y, 0.5f);
-                OrderLeft.GenerateOrder();
+                _returnToSeat();
             }
         }
         if (_collision.gameObject.name == "ReturnWall" && !_walkBack)
@@ -111,5 +98,13 @@ public class AnimationScript : MonoBehaviour
             }
         }
 
+    }
+    private void _returnToSeat()
+    {
+        _walkBack = false;
+        _walking = false;
+        _animation.SetBool("IsFinished", false);
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0.5f);
+        OrderLeft.GenerateOrder();
     }
 }

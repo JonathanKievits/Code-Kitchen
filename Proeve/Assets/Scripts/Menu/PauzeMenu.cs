@@ -8,7 +8,6 @@ public class PauzeMenu : MonoBehaviour
 {
     [SerializeField] private GameObject PauzeMenuHolder;
     [SerializeField] private InputField InputFieldHolder;
-    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -16,7 +15,6 @@ public class PauzeMenu : MonoBehaviour
             PauseGame();
         }
     }
-
     /*
         In pausegame the timescale is set to none, afterwards the pauzemenu is set to active .
         This is so you can go back to the main menu and go back into the game.
