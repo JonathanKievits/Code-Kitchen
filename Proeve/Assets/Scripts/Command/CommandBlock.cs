@@ -134,18 +134,23 @@ public class CommandBlock : MonoBehaviour
         {
             _multipleLines = StaticK.CommandString + Environment.NewLine + _multipleLines;
             _wrongMultipleLines = "" + Environment.NewLine + _wrongMultipleLines;
-            CodeDisplay.GetComponent<Text>().text = _multipleLines;
-            WrongCodeDispaly.GetComponent<Text>().text = _wrongMultipleLines;
+            _codeDisplay(_wrongMultipleLines, _multipleLines);
         }
         else
         {
             _multipleLines = "" + Environment.NewLine + _multipleLines;
             _wrongMultipleLines = StaticK.CommandString + Environment.NewLine + _wrongMultipleLines;
-            CodeDisplay.GetComponent<Text>().text = _multipleLines;
-            WrongCodeDispaly.GetComponent<Text>().text = _wrongMultipleLines;
+            _codeDisplay(_wrongMultipleLines, _multipleLines);
             StaticK.WrongInput = false;
         }
         InputField.GetComponent<Text>().text = " ";
+    }
+
+    private void _codeDisplay(string _wrongMultipleLines, string _multipleLines)
+    {
+        CodeDisplay.GetComponent<Text>().text = _multipleLines;
+        WrongCodeDispaly.GetComponent<Text>().text = _wrongMultipleLines;
+        _icecreamOrder = false;
     }
 
     public void Apply()
