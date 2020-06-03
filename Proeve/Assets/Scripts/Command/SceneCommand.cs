@@ -12,7 +12,7 @@ public class SceneCommand : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            _animation.IsFinished(true, 1);
+            //_animation.IsFinished(true, 1);
             CommandBlock.Apply();
         }
     }
