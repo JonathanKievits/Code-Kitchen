@@ -67,15 +67,15 @@ public class AnimationScript : MonoBehaviour
         {
             if (_collision.gameObject.name == "Seat1" && CustomerNumber == 3)
             {
-                _returnToSeat();
+                _returnToSeat(OrderRight);
             }
             else if (_collision.gameObject.name == "Seat2" && CustomerNumber == 2)
             {
-                _returnToSeat();
+                _returnToSeat(OrderMiddle);
             }
             else if (_collision.gameObject.name == "Seat3" && CustomerNumber == 1)
             {
-                _returnToSeat();
+                _returnToSeat(OrderLeft);
             }
         }
         if (_collision.gameObject.name == "ReturnWall" && !_walkBack)
@@ -101,7 +101,7 @@ public class AnimationScript : MonoBehaviour
         }
 
     }
-    private void _returnToSeat()
+    private void _returnToSeat(Order _order)
     {
         _walkBack = false;
         _walking = false;
@@ -109,6 +109,6 @@ public class AnimationScript : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y, 0.5f);
         Quaternion _target = Quaternion.Euler(0, 0, 0);
         transform.rotation = Quaternion.Slerp(transform.rotation, _target, Time.deltaTime * 1000);
-        OrderLeft.GenerateOrder();
+        _order.GenerateOrder();
     }
 }

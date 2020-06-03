@@ -5,11 +5,19 @@ using UnityEngine.UI;
 
 public class NextDay : MonoBehaviour
 {
+    //this will display the customers left
+    public Text DisplayText;
+
     [SerializeField]
     private Text _dayText = null;
     
     private int _currentDay = 0;
 
+    private void Update()
+    {
+        DisplayText.text = StaticK.CustomersLeft.ToString() + ": Klanten over";
+        _dayText.text = "Dag: " + _currentDay.ToString();
+    }
     void Start()
     {
         SetCustomerAmount();
