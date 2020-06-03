@@ -18,4 +18,6 @@ public class StaticK : MonoBehaviour
     public static int Difficulty;
     //this will check if you are allowd to typ
     public static bool Activate;
+    //This will check how many customers are left
+    public static int CustomersLeft;
 }

@@ -7,42 +7,43 @@ public class NextDay : MonoBehaviour
 {
     [SerializeField]
     private Text _dayText = null;
-
-    private int _customerAmount = 5;
+    
     private int _currentDay = 0;
 
     void Start()
     {
-        CheckDifficulty();
+        SetCustomerAmount();
     }
 
     //Sets difficulty for amount of customers
-    private void CheckDifficulty()
+    private void SetCustomerAmount()
     {
         switch (StaticK.Difficulty)
         {
             case 0:
-                _customerAmount = 5;
+                StaticK.CustomersLeft = 5;
                 break;
             case 1:
-                _customerAmount = 8;
+                StaticK.CustomersLeft = 8;
                 break;
             case 2:
-                _customerAmount = 10;
+                StaticK.CustomersLeft = 10;
                 break;
         }
+        
+        StaticK.CustomersLeft += _currentDay;
     }
     
     //Lowers the amount of customers
     public void LowerAmount()
     {
-        if (_customerAmount > 1)
+        if (StaticK.CustomersLeft > 1)
         {
-            _customerAmount -= 1;
+            StaticK.CustomersLeft -= 1;
         }
         else
         {
-            _customerAmount -= 1;
+            StaticK.CustomersLeft -= 1;
             StartNextDay();
         }     
     }
@@ -50,7 +51,7 @@ public class NextDay : MonoBehaviour
     //resets the customer amount, and starts a new day
     private void StartNextDay()
     {
-        CheckDifficulty();
+        SetCustomerAmount();
         _currentDay += 1;
         _dayText.text = "Day " + _currentDay;
     }
