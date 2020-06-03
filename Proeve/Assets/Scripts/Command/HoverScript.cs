@@ -29,7 +29,7 @@ public class HoverScript : MonoBehaviour
 
     void Update()
     {
-        if(!ReadyToOrder)
+        if(ReadyToOrder)
             FadeText();
     }
 

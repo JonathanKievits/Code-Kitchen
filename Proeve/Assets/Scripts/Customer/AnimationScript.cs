@@ -12,6 +12,8 @@ public class AnimationScript : MonoBehaviour
     public Order OrderMiddle;
     //this is the order script for the Left customer
     public Order OrderLeft;
+    //this is the parent Gameobject
+    public GameObject Parent;
 
     private Animator _animation;
     private bool _walking = false;
@@ -24,6 +26,7 @@ public class AnimationScript : MonoBehaviour
 
     private void Update()
     {
+        
         if (_walking && !_walkBack)
         {
             transform.Translate(Vector3.left * Time.deltaTime * 1.5f);
@@ -53,12 +56,12 @@ public class AnimationScript : MonoBehaviour
     {
         _walking = true;
         transform.position = new Vector3(transform.position.x, transform.position.y, -0.5f);
-        
+
     }
     private void OnCollisionEnter(Collision _collision)
     {
 
-        if (_walkBack)
+        if (_walkBack && _collision.gameObject.name != "ReturnWall")
         {
             if (_collision.gameObject.name == "Seat1" && CustomerNumber == 3)
             {
@@ -78,6 +81,7 @@ public class AnimationScript : MonoBehaviour
             }
             else if (_collision.gameObject.name == "Seat3" && CustomerNumber == 1)
             {
+                Parent.transform.position = new Vector3(transform.position.x - 10, transform.position.y, transform.position.z);
                 _walkBack = false;
                 _walking = false;
                 _animation.SetBool("IsFinished", false);
@@ -85,8 +89,12 @@ public class AnimationScript : MonoBehaviour
                 OrderLeft.GenerateOrder();
             }
         }
-        if(_collision.gameObject.name == "ReturnWall")
+        if (_collision.gameObject.name == "ReturnWall" && !_walkBack)
+        {
+            Quaternion _target = Quaternion.Euler(0, 90, 0);
+            transform.rotation = Quaternion.Slerp(transform.rotation, _target, Time.deltaTime * 1000);
             _walkBack = true;
+        }
 
     }
 }
