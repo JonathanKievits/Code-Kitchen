@@ -36,20 +36,28 @@ public class Order : MonoBehaviour
     //Generate order picks a rendom recipe and selects that. This is done so you wont allways have a burger. 
     public void GenerateOrder()
     {
-        _randomOrder = Random.Range(0, 4);
+        if (StaticK.Difficulty >= 1)
+        {
+            _randomOrder = Random.Range(0, 4);
+        }
+        if (StaticK.Difficulty < 1)
+        {
+            _randomOrder = Random.Range(0, 2);
+        }
+        
         _readyToOrder = true;
         if (_readyToOrder == true)
         {
             switch (_randomOrder)
             {
                 case 0:
-                    SpawnOrderBurger();
+                    SpawnOrderIce();
                     break;
                 case 1:
                     SpawnOrderHotDog();
                     break;
                 case 2:
-                    SpawnOrderIce();
+                    SpawnOrderBurger();
                     break;
                 case 3:
                     SpawnOrderKip();
@@ -280,6 +288,13 @@ public class Order : MonoBehaviour
         for(int i = 0; i < _orderHolder.Count; i++)
         {
             foreach (Transform child in _orderHolder[i])
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+        }
+        for (int i = 0; i < _iceHolder.Count; i++)
+        {
+            foreach (Transform child in _iceHolder[i])
             {
                 GameObject.Destroy(child.gameObject);
             }
