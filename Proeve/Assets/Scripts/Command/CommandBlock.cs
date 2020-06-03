@@ -150,7 +150,6 @@ public class CommandBlock : MonoBehaviour
     {
         CodeDisplay.GetComponent<Text>().text = _multipleLines;
         WrongCodeDispaly.GetComponent<Text>().text = _wrongMultipleLines;
-        _icecreamOrder = false;
     }
 
     public void Apply()
@@ -232,15 +231,18 @@ public class CommandBlock : MonoBehaviour
                     StartCoroutine(_spawnIngredient(Fries, _numberOfIngredient, _localSpawnLocation, "Friet"));
                     break;
                 case "GetKers":
+                    _icecreamOrder = true;
                     StartCoroutine(_spawnIngredient(Cherry, _numberOfIngredient, _localSpawnLocation, "IceCherry"));
                     break;
                 case "GetKip":
                     StartCoroutine(_spawnIngredient(Chicken, _numberOfIngredient, _localSpawnLocation, "Chicken"));
                     break;
                 case "GetIjsAardbei":
+                    _icecreamOrder = true;
                     StartCoroutine(_spawnIngredient(StrawberryIce, _numberOfIngredient, _localSpawnLocation, "IceStrawberry"));
                     break;
                 case "GetIjsChoco":
+                    _icecreamOrder = true;
                     StartCoroutine(_spawnIngredient(ChocolateIce, _numberOfIngredient, _localSpawnLocation, "IceChocolate"));
                     break;
                 case "GetIjshoorntje":
@@ -333,6 +335,7 @@ public class CommandBlock : MonoBehaviour
         if (!StaticK.WrongInput && _ingredientSpawnLocation.childCount != 0)
         {
             _nextDay = NextDayScript;
+            _icecreamOrder = false;
             StaticK.CommandString = "Bedankt voor het eten!";
             _animation.IsFinished(true, _customerInt);
             _order.ResetOrder();

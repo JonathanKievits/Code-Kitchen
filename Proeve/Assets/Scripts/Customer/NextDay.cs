@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class NextDay : MonoBehaviour
 {
@@ -10,13 +11,11 @@ public class NextDay : MonoBehaviour
 
     [SerializeField]
     private Text _dayText = null;
-    
-    private int _currentDay = 0;
 
     private void Update()
     {
         DisplayText.text = StaticK.CustomersLeft.ToString() + ": Klanten over";
-        _dayText.text = "Dag: " + _currentDay.ToString();
+        _dayText.text = "Dag: " + StaticK.CurrentDay.ToString();
     }
     void Start()
     {
@@ -39,7 +38,7 @@ public class NextDay : MonoBehaviour
                 break;
         }
         
-        StaticK.CustomersLeft += _currentDay;
+        StaticK.CustomersLeft += StaticK.CurrentDay;
     }
     
     //Lowers the amount of customers
@@ -60,7 +59,8 @@ public class NextDay : MonoBehaviour
     private void StartNextDay()
     {
         SetCustomerAmount();
-        _currentDay += 1;
-        _dayText.text = "Day " + _currentDay;
+        StaticK.CurrentDay += 1;
+        _dayText.text = "Day " + StaticK.CurrentDay;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
