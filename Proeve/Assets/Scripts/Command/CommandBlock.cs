@@ -85,6 +85,8 @@ public class CommandBlock : MonoBehaviour
     //this is the order script for the Left customer
     public Order OrderLeft;
 
+    [SerializeField]
+    private NextDay _nextDay;
 
     private AnimationScript _animation;
     private Order _order;
@@ -406,6 +408,7 @@ public class CommandBlock : MonoBehaviour
             StaticK.CommandString = "Bedankt voor het eten!";
             _animation.IsFinished(true, _customerInt);
             _order.ResetOrder();
+            _nextDay.LowerAmount();
         }
     }
 }
