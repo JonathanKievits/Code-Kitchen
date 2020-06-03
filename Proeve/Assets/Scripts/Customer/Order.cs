@@ -27,14 +27,6 @@ public class Order : MonoBehaviour
         AddIngrdientsToList();
         GenerateOrder();
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ResetOrder();
-            GenerateOrder();
-        }
-    }
 
     //Generate order picks a rendom recipe and selects that. This is done so you wont allways have a burger. 
     public void GenerateOrder()
@@ -267,13 +259,6 @@ public class Order : MonoBehaviour
         for(int i = 0; i < _orderHolder.Count; i++)
         {
             foreach (Transform child in _orderHolder[i])
-            {
-                GameObject.Destroy(child.gameObject);
-            }
-        }
-        for (int i = 0; i < _iceHolder.Count; i++)
-        {
-            foreach (Transform child in _iceHolder[i])
             {
                 GameObject.Destroy(child.gameObject);
             }
