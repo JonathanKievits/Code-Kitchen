@@ -218,10 +218,10 @@ public class CommandBlock : MonoBehaviour
                     StartCoroutine(_spawnIngredient(Bacon, _numberOfIngredient, _localSpawnLocation, "Pizza"));
                     break;
                 case "GetTopSandwich":
-                    StartCoroutine(_spawnIngredient(SandwichTop, _numberOfIngredient, _localSpawnLocation, "SandwichTop"));
+                    StartCoroutine(_spawnIngredient(SandwichTop, _numberOfIngredient, _localSpawnLocation, "KipTopBun"));
                     break;
                 case "GetOnderSandwich":
-                    StartCoroutine(_spawnIngredient(SandwichBottom, _numberOfIngredient, _localSpawnLocation, "SandwichBottom"));
+                    StartCoroutine(_spawnIngredient(SandwichBottom, _numberOfIngredient, _localSpawnLocation, "KipBottomBun"));
                     break;
                 case "GetFriet":
                     StartCoroutine(_spawnIngredient(Fries, _numberOfIngredient, _localSpawnLocation, "Friet"));
