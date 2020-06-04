@@ -36,6 +36,8 @@ public class CommandBlock : MonoBehaviour
     public GameObject HotdogBun;
     //this is the sauce
     public GameObject Mayonaise;
+    //this is the sauce
+    public GameObject Mosterd;
     //this is the pickle
     public GameObject Pickle;
     //this is the left order
@@ -208,10 +210,10 @@ public class CommandBlock : MonoBehaviour
                     StartCoroutine(_spawnIngredient(Union, _numberOfIngredient, _localSpawnLocation, "BurgerUnion"));
                     break;
                 case "GetMosterd":
-                    StartCoroutine(_spawnIngredient(Mayonaise, _numberOfIngredient, _localSpawnLocation, "HotdogSauce"));
+                    StartCoroutine(_spawnIngredient(Mosterd, _numberOfIngredient, _localSpawnLocation, "HotdogSauceMustard"));
                     break;
                 case "GetKetchup":
-                    StartCoroutine(_spawnIngredient(Mayonaise, _numberOfIngredient, _localSpawnLocation, "HotdogSauce"));
+                    StartCoroutine(_spawnIngredient(Mayonaise, _numberOfIngredient, _localSpawnLocation, "HotdogSauceKetchup"));
                     break;
                 case "GetKaas":
                     StartCoroutine(_spawnIngredient(Cheese, _numberOfIngredient, _localSpawnLocation, "BurgerCheese"));

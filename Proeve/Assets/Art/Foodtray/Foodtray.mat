@@ -8,18 +8,34 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Foodtray
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 2bd07e1c81b549e41b6de20f43546222,
+    type: 3}
   m_ShaderKeywords: _METALLICSPECGLOSSMAP _NORMALMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2050
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_4FD5A9C3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_64881BEE:
+        m_Texture: {fileID: 2800000, guid: b5959f2e2153d4943ba597e647823330, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_BCA362FE:
+        m_Texture: {fileID: 2800000, guid: 9c2973a1ddedc6141986e99d2ade1a38, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_D13B4415:
+        m_Texture: {fileID: 2800000, guid: 7d8ab0163c5bcbd47913f52e71e2a413, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: 9c2973a1ddedc6141986e99d2ade1a38, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -44,11 +60,52 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_A2961044_Texture_1:
+        m_Texture: {fileID: 2800000, guid: dafc95bd90f0df34c9fe64ff01d0dfc6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Boolean_205CDFFF: 0
+    - Boolean_407DCE29: 0
+    - Boolean_8F7CF40: 1
+    - Boolean_8F835121: 0
+    - Boolean_C19C5878: 0
+    - Boolean_C5B59962: 0
+    - Boolean_C83E9DC1: 1
+    - Vector1_1883D74B: 0
+    - Vector1_1D2B4F5E: 1
+    - Vector1_22A5C14: 1
+    - Vector1_25125B1: 1
+    - Vector1_2A1C355C: 0
+    - Vector1_3767B562: 0.8
+    - Vector1_3F80ADB6: 0.012
+    - Vector1_45642C25: 1
+    - Vector1_480F4B9E: 0
+    - Vector1_57F6EA51: 1
+    - Vector1_6EF2F065: 10
+    - Vector1_74ABCF48: 1
+    - Vector1_8214C778: 8
+    - Vector1_914814A0: 0
+    - Vector1_97C9D898: 7
+    - Vector1_983C278A: 1
+    - Vector1_9CBDAF82: 0
+    - Vector1_B0EA1645: 0.5
+    - Vector1_BDAA3502: 0.4
+    - Vector1_C66E21FF: 0.1
+    - Vector1_CA522F03: 1
+    - Vector1_D1DD9BC2: 1
+    - Vector1_D4789A5F: 0.2
+    - Vector1_DD725EC8: 1
+    - Vector1_E072B2B8: 1
+    - Vector1_E146EA16: 0
+    - Vector1_E2ED5FCF: 0.12
+    - Vector1_F21C91C7: 0
+    - Vector1_F898A44: 0.05
+    - Vector1_F9063598: 0.4
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -71,6 +128,13 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_1E4F6200: {r: 1, g: 1, b: 1, a: 1}
+    - Color_419D96E: {r: 0.8561766, g: 0.9486761, b: 0.9811321, a: 1}
+    - Color_48159F26: {r: 1, g: 1, b: 1, a: 1}
+    - Color_959C743E: {r: 1, g: 1, b: 1, a: 1}
+    - Color_B811CB07: {r: 1, g: 1, b: 1, a: 1}
+    - Color_DECAA28C: {r: 1, g: 1, b: 1, a: 1}
+    - Vector3_3A1B3B90: {r: 0.29, g: 0.81, b: -0.83, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

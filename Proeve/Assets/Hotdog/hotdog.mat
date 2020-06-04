@@ -8,18 +8,30 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: hotdog
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 48daba0c54981094eb3c3df4a097425d,
+    type: 3}
   m_ShaderKeywords: _NORMALMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2050
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_1E64803:
+        m_Texture: {fileID: 2800000, guid: 927c34fcde083034a9c83301189d7980, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_2CEFE3A:
+        m_Texture: {fileID: 2800000, guid: 222fd79b843972e40a6dba35bc19faa5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_DECB7152:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: 927c34fcde083034a9c83301189d7980, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -49,6 +61,25 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Boolean_1AA309C: 0
+    - Boolean_71DB3A24: 0
+    - Boolean_82260939: 0
+    - Boolean_C91CD2E2: 1
+    - Vector1_157B3058: 1
+    - Vector1_1F246BFD: 0
+    - Vector1_28F42830: 1
+    - Vector1_2E773FC3: 0.5
+    - Vector1_3E6DBBBB: -1.15
+    - Vector1_494A203D: 1
+    - Vector1_4A22BDA8: 0.22
+    - Vector1_53AFBE39: 2
+    - Vector1_8757FF6B: 0
+    - Vector1_927990EC: 0.012
+    - Vector1_960FD93B: 0
+    - Vector1_A0845701: 1
+    - Vector1_A75022AB: 8
+    - Vector1_EAAF43E2: 1
+    - Vector1_ECE7D690: 0.5
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -71,10 +102,13 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_3FE2C44A: {r: 2, g: 2, b: 2, a: 0}
+    - Color_AC2D762: {r: 0.9056604, g: 0.5467397, b: 0.4058384, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _SubSurfaceLightDirection: {r: 0.29, g: 0.81, b: -0.83, a: 0}
 --- !u!114 &2741412551346413998
 MonoBehaviour:
   m_ObjectHideFlags: 11
